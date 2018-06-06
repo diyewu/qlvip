@@ -8,7 +8,7 @@ server:
 spring:
     datasource:
         name: test
-        url: jdbc:mysql://localhost:3306/smartpark
+        url: jdbc:mysql://localhost:3306/qlvip
         username: root
         password: 123456
         # 使用druid数据源
@@ -79,8 +79,8 @@ custom:
      port: 587
      user: 194973883@qq.com
      pwd: bctxjkzoywyqbied
-     appid: wxc03cad31c1ceb8f3
-     secret: d4624c36b6795d1d99dcf0547af5443d
+     appid: wx4307e5a5bb1ced6c
+     secret: cda03704e18865361c18583bfef73358
      baiduapikey: 7gsG6xxeUEbtVCvVIqZ6aZY9Bage25Zm
      weixintoken: N6BflxST3dsDdRNr
      sendtimes: 10
