@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xz.dao.UserMenuMapper">
+  <resultMap id="BaseResultMap" type="com.xz.entity.UserMenu">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="menu_url" jdbcType="VARCHAR" property="menuUrl" />
+    <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+    <result column="leaf" jdbcType="VARCHAR" property="leaf" />
+    <result column="button" jdbcType="INTEGER" property="button" />
+    <result column="auth_leaf" jdbcType="VARCHAR" property="authLeaf" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, parent_id, menu_url, menu_name, leaf, button, auth_leaf
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_menu
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_menu
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xz.entity.UserMenu">
+    insert into user_menu (id, parent_id, menu_url, 
+      menu_name, leaf, button, 
+      auth_leaf)
+    values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{menuUrl,jdbcType=VARCHAR}, 
+      #{menuName,jdbcType=VARCHAR}, #{leaf,jdbcType=VARCHAR}, #{button,jdbcType=INTEGER}, 
+      #{authLeaf,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xz.entity.UserMenu">
+    insert into user_menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="menuUrl != null">
+        menu_url,
+      </if>
+      <if test="menuName != null">
+        menu_name,
+      </if>
+      <if test="leaf != null">
+        leaf,
+      </if>
+      <if test="button != null">
+        button,
+      </if>
+      <if test="authLeaf != null">
+        auth_leaf,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="menuUrl != null">
+        #{menuUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="menuName != null">
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="leaf != null">
+        #{leaf,jdbcType=VARCHAR},
+      </if>
+      <if test="button != null">
+        #{button,jdbcType=INTEGER},
+      </if>
+      <if test="authLeaf != null">
+        #{authLeaf,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xz.entity.UserMenu">
+    update user_menu
+    <set>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="menuUrl != null">
+        menu_url = #{menuUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="menuName != null">
+        menu_name = #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="leaf != null">
+        leaf = #{leaf,jdbcType=VARCHAR},
+      </if>
+      <if test="button != null">
+        button = #{button,jdbcType=INTEGER},
+      </if>
+      <if test="authLeaf != null">
+        auth_leaf = #{authLeaf,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xz.entity.UserMenu">
+    update user_menu
+    set parent_id = #{parentId,jdbcType=INTEGER},
+      menu_url = #{menuUrl,jdbcType=VARCHAR},
+      menu_name = #{menuName,jdbcType=VARCHAR},
+      leaf = #{leaf,jdbcType=VARCHAR},
+      button = #{button,jdbcType=INTEGER},
+      auth_leaf = #{authLeaf,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

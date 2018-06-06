@@ -1,0 +1,40 @@
+body{
+    background: RGB(240, 240, 240);
+}
+.content{
+    float: left;
+    width: 100%;
+    background: url("bg_dh@3x.png") no-repeat;
+    background-size: 100% 100%;
+}
+.top_img{
+    float: left;
+    width: 200px;
+    padding-left: 50%;
+    margin: 25px 0 10px -100px;
+}
+#exc_input{
+    float: left;
+    margin: 0 10% 0 10%;
+    width: 70%;
+    border: #3086c3 1px solid;
+    height: 24px;
+    line-height: 24px;
+    padding: 8px 5%;
+    background: RGB(248, 248, 248);
+    color: #212121;
+    font-size: 14px;
+    border-radius: 20px;
+}
+.exc_button{
+    float: left;
+    margin: 15px 10% 30px 10%;
+    width: 80%;
+    height: 40px;
+    line-height: 40px;
+    background: #3086c3;
+    font-size: 15px;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 20px;
+}

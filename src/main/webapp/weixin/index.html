@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title></title>
+  
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/wap_show_tools.css">
+  <link rel="stylesheet" href="css/simple_slider.css"">
+  <link rel="stylesheet" href="css/owl.carousel.css"">
+  <link rel="stylesheet" href="css/owl.theme.default.css">
+  <link rel="stylesheet" href="css/homepage.css">
+
+  <script type="text/javascript" src="js/jquery_1.9.min.js"></script>
+  <script type="text/javascript" src="js/base.js" ></script>
+  <script type="text/javascript" src="js/wap_show_tools.js"></script>
+  <script type="text/javascript" src="js/simple_slider.js" ></script>
+  <script type="text/javascript" src="js/owl.carousel.js" ></script>
+  <script type="text/javascript" src="js/homepage.js" ></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</head>
+<body style="margin-top: -20px;">
+  <input type="hidden" value="" id="contextPath">
+  <!-- <div class="slider" style="width: 750px; height: 400px; position: relative; overflow: hidden; margin: 0px auto;">
+  <ul style="position: absolute; left: 0px; width: 750px;">
+    <li style="float: left; display: inline; width: 750px; height: 400px;">
+      <a href="">
+        <img src="images/hqsq.png" style="width: 100%; height: 100%;"></a>
+    </li>
+  </ul>
+  <div class="focus" style="min-height: 16px; position: absolute; bottom: 0px; width: 750px; height: 60px; z-index: 2;">
+    <div style="width: 18px; position: absolute; right: 10px; top: 50%; margin-top: -4px;">
+      <span style="display: block; float: left; cursor: pointer;" class="current"></span>
+    </div>
+  </div>
+</div> -->
+<div class="slider" >
+  <ul>
+  </ul>
+  <div class="focus" style="min-height: 16px; position: absolute; bottom: 0px; width: 750px; height: 60px; z-index: 2;">
+    <div style="width: 18px; position: absolute; right: 10px; top: 50%; margin-top: -4px;">
+      <span style="display: block; float: left; cursor: pointer;" class="current"></span>
+    </div>
+  </div>
+</div>
+  <div class="homepage_tips">
+  </div>
+  <input type="hidden" id="car_num_list" value=""><!-- 无  或者 赣C66688，赣C666as8 -->
+  <input type="hidden" id="park_info_list" value="">
+  <div class="park_list">
+    <div class="refresh_button" onclick="$('body').showLoadingView();location.reload();">
+      <img src="images/icon_home_renovate@3x.png">
+      	刷新
+    </div>
+    <!-- 
+    <div class="problem_button" onclick="jumpProblemPage();">
+      	问题反馈
+    </div>
+     -->
+    <div class="owl_carousel">
+    	  <!--  
+          <div class="item">
+            <div class="park_detail">
+              <img class="park_detail_no_img" src="images/parking3.png">
+              <div class="park_detail_no_tips">
+                	您正停在XXXXXXXXX
+              </div>
+            </div>
+	          <div class="park_operate_div">
+	            <div class="park_operate_button" onclick="jumpUrl('addCar.html');">添加车辆</div>
+	          </div>
+            <div class="park_info">
+              <div class="park_info_left">时长</div>
+              <div class="park_info_right">0天0小时0分钟</div>
+            </div>
+          </div>
+          -->
+        <!-- 
+          <div class="item">
+            <div class="park_detail">
+              <img class="park_detail_no_img" src="images/pic4@3x.png">
+              <div class="park_detail_no_tips">
+                	您未驶入停车场
+              </div>
+            </div>
+            <div class="park_operate_div">
+            </div>
+            <div class="park_info">
+              <div class="park_info_left">时长</div>
+              <div class="park_info_right">1小时0分钟</div>
+            </div>
+          </div>
+        
+          <div class="item">
+            <div class="park_detail">
+              <img class="park_detail_no_img" src="images/pic4@3x.png" >
+              <div class="park_detail_no_tips">
+                                        您未驶入停车场
+              </div>
+            </div>
+            <div class="park_operate_div">
+            </div>
+            <div class="park_info">
+              <div class="park_info_left">时长</div>
+              <div class="park_info_right">2小时0分钟</div>
+            </div>
+          </div>
+           -->
+    </div>
+  </div>
+  <div class="bottom_bar_brace"></div>
+  <div class="bottom_bar">
+    <div class="bottom_bar_button" onclick="jumpMemInfoPage();">
+      <img src="images/person.png
+      " >
+      <div>个人中心</div>
+    </div>
+    <div class="bottom_bar_button" onclick="jumpParkListPage();">
+      <img src="images/findpark.png">
+      <div>查找停车场</div>
+    </div>
+    <!-- 
+    <div class="bottom_bar_button" onclick="jumpOrderParkListPage();">
+      <img src="images/time@3x.png" >
+      <div>包月服务</div>
+    </div>
+     -->
+  </div>
+</body>
+</html>

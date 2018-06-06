@@ -1,0 +1,651 @@
+.slider{
+    float: left;
+    width: 100%;
+    height: inherit;
+    display: inline-block;
+}
+.homepage_tips{
+    float: left;
+    width: 94%;
+    margin: 0 3%;
+}
+.homepage_tips img{
+    float: left;
+}
+.homepage_tips div{
+    float: left;
+    color: #999999;
+}
+.homepage_tips a{
+    float: left;
+    color: #3086c3;
+}
+.owl_carousel{
+    float: left;
+    width: 100%;
+}
+.owl_carousel .item{
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.park_detail{
+    display: inline-block;
+    /*background: url("../images/vectorSmartObject@3x.png") no-repeat;*/
+    background-size: contain;
+}
+.item .park_detail .park_detail_no_img{
+    float: left;
+}
+.park_detail_no_tips{
+    float: left;
+    width: 100%;
+    color: #636363;
+    text-align: center;
+}
+.park_detail_tips_1{
+    float: left;
+    width: 100%;
+    color: #999999;
+    text-align: center;
+}
+.park_detail_info{
+    float: left;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.park_detail_info_amt_div{
+    display: inline-block;
+}
+.park_detail_info_amt{
+    float: left;
+    color: #636363;
+}
+.park_detail_info_yuan_div{
+    display: inline-block;
+}
+.park_detail_info_yuan{
+    float: left;
+    color: #3086c3;
+}
+.park_detail_info_minute_div{
+    display: inline-block;
+}
+.park_detail_info_minute{
+    float: left;
+    color: #636363;
+}
+.park_detail_info_min_div{
+    display: inline-block;
+}
+.park_detail_info_min{
+    float: left;
+    color: #3086c3;
+}
+.park_detail_info_sec_div{
+    display: inline-block;
+}
+.park_detail_info_sec{
+    float: left;
+    color: #636363;
+}
+.park_detail_info_s_div{
+    display: inline-block;
+}
+.park_detail_info_s{
+    float: left;
+    color: #3086c3;
+}
+.park_detail_tips_2{
+    float: left;
+    width: 100%;
+    color: #636363;
+    text-align: center;
+}
+.park_operate_div{
+    width: 100%;
+    display: inline-block;
+}
+.park_operate_button{
+    display: inline-block;
+    background: #3086c3;
+    color: #ffffff;
+}
+.park_operate_pay{
+    background: #f3bd47;
+}
+.park_operate_pay_grab{
+    display: inline-block;
+    background: url("../images/btn_home@3x.png") no-repeat;
+    background-size: contain;
+    width: 108px;
+    height: 42px;
+    margin: 10px auto;
+}
+.park_info{
+    width: 75%;
+    display: inline-block;
+    color: #636363;
+}
+.park_info_left{
+    float: left;
+    color: #212121;
+}
+.park_info_right{
+    float: right;
+    color: #ff5a5a;
+}
+.park_info_right span{
+    color: #636363;
+}
+.park_list{
+    float: left;
+    position: relative;
+    width: 100%;
+}
+.problem_button{
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    color: #3086c3;;
+    font-size: 14px;
+    z-index: 100;
+    top: 0px;
+    left: 20px;
+}
+.refresh_button{
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    color: #3086c3;;
+    font-size: 14px;
+    z-index: 100;
+    top: 0px;
+    right: 20px;
+}
+.refresh_button img{
+    float: left;
+    width: 14px;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+.bottom_bar_brace{
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+.bottom_bar{
+    position: fixed;
+    width: 94%;
+    left: 3%;
+    bottom: 10px;
+    background: RGB(248, 248, 248);
+    z-index: 10;
+    border: 1px solid RGB(227, 227, 227);
+}
+.bottom_bar_button {
+    float: left;
+    width: 50%;
+    display: block;
+    text-align: center;
+}
+.bottom_bar_button img{
+    display: inline-block;
+}
+.bottom_bar_button div{
+    display: inline-block;
+    color: #636363;
+    text-align: center;
+    width: 100%;
+}
+@media screen and (max-width: 340px){
+    .homepage_tips{
+        height: 25px;
+    }
+    .homepage_tips img{
+        width: 16px;
+        margin: 5px 5px 0 0px;
+    }
+    .homepage_tips div{
+        line-height: 25px;
+        font-size: 13px;
+    }
+    .homepage_tips a{
+        line-height: 25px;
+        font-size: 13px;
+    }
+    .park_detail{
+        width: 190px;
+        height: 138px;
+        margin-top: 0px;
+    }
+    .item .park_detail .park_detail_no_img{
+        width: 30%;
+        margin: 45px 35% 5px 35%;
+    }
+    .park_detail_no_tips{
+        width: 100%;
+        line-height: 20px;
+        font-size: 14px;
+    }
+    .park_detail_tips_1{
+        line-height: 20px;
+        font-size: 12px;
+        margin-top: 25px;
+    }
+    .park_detail_info{
+        margin-top: 15px;
+        height: 40px;
+    }
+    .park_detail_info_amt_div{
+        height: 40px;
+    }
+    .park_detail_info_amt{
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .park_detail_info_yuan_div{
+        height: 40px;
+    }
+    .park_detail_info_yuan{
+        font-size: 14px;
+        line-height: 18px;
+        margin-top: 2px;
+    }
+    .park_detail_info_minute_div{
+        height: 40px;
+    }
+    .park_detail_info_minute{
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .park_detail_info_min_div{
+        height: 40px;
+    }
+    .park_detail_info_min{
+        font-size: 14px;
+        line-height: 18px;
+        margin-top: 0px;
+    }
+    .park_detail_info_sec_div{
+        height: 40px;
+    }
+    .park_detail_info_sec{
+        font-size: 30px;
+        line-height: 30px;
+        margin-top: 8px;
+    }
+    .park_detail_info_s_div{
+        height: 40px;
+    }
+    .park_detail_info_s{
+        font-size: 14px;
+        line-height: 18px;
+        margin-top: 5px;
+    }
+    .park_detail_tips_2{
+        line-height: 20px;
+        font-size: 14px;
+        margin-top: 8px;
+    }
+    .park_operate_div{
+        height: 46px;
+    }
+    .park_operate_button{
+        width: 100px;
+        height: 34px;
+        border-radius: 17px;
+        line-height: 34px;
+        font-size: 14px;
+        margin: 6px auto;
+    }
+    .park_operate_pay_grab{
+        width: 100px;
+        height: 36px;
+        margin: 5px auto;
+    }
+    .park_info{
+        line-height: 25px;
+        height: 25px;
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+    .park_info_left{
+        font-size: 14px;
+    }
+    .carousel_carNum{
+        font-size: 13px;
+    }
+    .owl-dot.active .carousel_carNum{
+        font-size: 15px;
+    }
+    .park_info_right span{
+        font-size: 14px;
+    }
+    .problem_button{
+        font-size: 12px;
+        top: 0px;
+        left: 20px;
+    }
+    .refresh_button{
+        font-size: 12px;
+        top: 0px;
+        right: 10px;
+    }
+    .refresh_button img{
+        width: 12px;
+        margin-top: 9px;
+        margin-right: 5px;
+    }
+    .bottom_bar_brace{
+        height: 75px;
+    }
+    .bottom_bar{
+        height: 65px;
+    }
+    .bottom_bar_button {
+        height: 65px;
+    }
+    .bottom_bar_button img{
+        width: 18px;
+        margin-top: 14px;
+    }
+    .bottom_bar_button div{
+        line-height: 35px;
+        font-size: 14px;
+    }
+}
+@media screen and (min-width: 341px) and (max-width: 410px){
+    .homepage_tips{
+        height: 30px;
+    }
+    .homepage_tips img{
+        width: 18px;
+        margin: 6px 5px 0 0px;
+    }
+    .homepage_tips div{
+        line-height: 30px;
+        font-size: 14px;
+    }
+    .homepage_tips a{
+        line-height: 30px;
+        font-size: 14px;
+    }
+    .park_detail{
+        width: 220px;
+        height: 160px;
+        margin-top: 2px;
+    }
+    .item .park_detail .park_detail_no_img{
+        width: 34%;
+        margin: 55px 33% 5px 33%;
+    }
+    .park_detail_no_tips{
+        width: 100%;
+        line-height: 22px;
+        font-size: 16px;
+    }
+    .park_detail_tips_1{
+        line-height: 20px;
+        font-size: 14px;
+        margin-top: 30px;
+    }
+    .park_detail_info{
+        margin-top: 20px;
+        height: 50px;
+    }
+    .park_detail_info_amt_div{
+        height: 50px;
+    }
+    .park_detail_info_amt{
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .park_detail_info_yuan_div{
+        height: 50px;
+    }
+    .park_detail_info_yuan{
+        font-size: 16px;
+        line-height: 18px;
+        margin-top: 5px;
+    }
+    .park_detail_info_minute_div{
+        height: 50px;
+    }
+    .park_detail_info_minute{
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .park_detail_info_min_div{
+        height: 50px;
+    }
+    .park_detail_info_min{
+        font-size: 16px;
+        line-height: 18px;
+        margin-top: 2px;
+    }
+    .park_detail_info_sec_div{
+        height: 50px;
+    }
+    .park_detail_info_sec{
+        font-size: 35px;
+        line-height: 35px;
+        margin-top: 15px;
+    }
+    .park_detail_info_s_div{
+        height: 50px;
+    }
+    .park_detail_info_s{
+        font-size: 16px;
+        line-height: 18px;
+        margin-top: 14px;
+    }
+    .park_detail_tips_2{
+        line-height: 20px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    .park_operate_div{
+        height: 60px;
+    }
+    .park_operate_button{
+        width: 110px;
+        height: 40px;
+        border-radius: 20px;
+        line-height: 40px;
+        font-size: 15px;
+        margin: 10px auto;
+    }
+    .park_info{
+        line-height: 25px;
+        height: 25px;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .park_info_left{
+        font-size: 16px;
+    }
+    .park_info_right span{
+        font-size: 16px;
+    }
+    .bottom_bar_brace{
+        height: 85px;
+    }
+    .bottom_bar{
+        height: 75px;
+    }
+    .bottom_bar_button {
+        height: 75px;
+    }
+    .bottom_bar_button img{
+        width: 20px;
+        margin-top: 16px;
+    }
+    .bottom_bar_button div{
+        line-height: 35px;
+        font-size: 14px;
+    }
+}
+@media screen  and (min-width: 411px){
+    .homepage_tips{
+        height: 35px;
+    }
+    .homepage_tips img{
+        width: 20px;
+        margin: 7px 5px 0 0px;
+    }
+    .homepage_tips div{
+        line-height: 35px;
+        font-size: 16px;
+    }
+    .homepage_tips a{
+        line-height: 35px;
+        font-size: 16px;
+    }
+    .park_detail{
+        width: 260px;
+        height: 189px;
+        margin-top: 2px;
+    }
+    .item .park_detail .park_detail_no_img{
+        width: 38%;
+        margin: 55px 31% 5px 31%;
+    }
+    .park_detail_no_tips{
+        width: 100%;
+        line-height: 24px;
+        font-size: 18px;
+    }
+    .park_detail_tips_1{
+        line-height: 20px;
+        font-size: 16px;
+        margin-top: 35px;
+    }
+    .park_detail_info{
+        margin-top: 24px;
+        height: 65px;
+    }
+    .park_detail_info_amt_div{
+        height: 65px;
+    }
+    .park_detail_info_amt{
+        font-size: 65px;
+        line-height: 65px;
+    }
+    .park_detail_info_yuan_div{
+        height: 65px;
+    }
+    .park_detail_info_yuan{
+        font-size: 18px;
+        line-height: 20px;
+        margin-top: 5px;
+    }
+    .park_detail_info_minute_div{
+        height: 65px;
+    }
+    .park_detail_info_minute{
+        font-size: 65px;
+        line-height: 65px;
+    }
+    .park_detail_info_min_div{
+        height: 65px;
+    }
+    .park_detail_info_min{
+        font-size: 18px;
+        line-height: 20px;
+        margin-top: 0px;
+    }
+    .park_detail_info_sec_div{
+        height: 65px;
+    }
+    .park_detail_info_sec{
+        font-size: 42px;
+        line-height: 42px;
+        margin-top: 19px;
+    }
+    .park_detail_info_s_div{
+        height: 65px;
+    }
+    .park_detail_info_s{
+        font-size: 18px;
+        line-height: 20px;
+        margin-top: 16px;
+    }
+    .park_detail_tips_2{
+        line-height: 20px;
+        font-size: 18px;
+        margin-top: 12px;
+    }
+    .park_operate_div{
+        height: 68px;
+    }
+    .park_operate_button{
+        width: 120px;
+        height: 44px;
+        border-radius: 22px;
+        line-height: 44px;
+        font-size: 16px;
+        margin: 12px auto;
+    }
+    .park_operate_pay_grab{
+        width: 120px;
+        height: 46px;
+        margin: 12px auto;
+    }
+    .carousel_carNum{
+        font-size: 15px;
+    }
+    .owl-dot.active .carousel_carNum{
+        font-size: 17px;
+    }
+    .park_info{
+        line-height: 25px;
+        height: 25px;
+        font-size: 21px;
+        margin-bottom: 13px;
+    }
+    .park_info_left{
+        font-size: 17px;
+    }
+    .park_info_right span{
+        font-size: 17px;
+    }
+    .problem_button{
+        font-size: 16px;
+        top: 0px;
+        left: 25px;
+    }
+    .refresh_button{
+        font-size: 16px;
+        top: 0px;
+        left: 30px;
+    }
+    .refresh_button img{
+        width: 16px;
+        margin-top: 7px;
+        margin-right: 5px;
+    }
+    .bottom_bar_brace{
+        height: 85px;
+    }
+    .bottom_bar{
+        height: 75px;
+    }
+    .bottom_bar_button {
+        height: 75px;
+    }
+    .bottom_bar_button img{
+        width: 20px;
+        margin-top: 16px;
+    }
+    .bottom_bar_button div{
+        line-height: 35px;
+        font-size: 14px;
+    }
+}
+.alert_dialog_div{/*body上提20px，提示工具保持原位置*/
+    top: 0px;
+}

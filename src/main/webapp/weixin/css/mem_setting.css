@@ -1,0 +1,52 @@
+.multi-switch .switch-content{
+    background-color: RGB(240, 240, 240);
+    border: 1px solid RGB(227, 227, 227);
+}
+.multi-switch .switch-content.active{
+    background-color: #3086c3;
+}
+body{
+    background: RGB(240, 240, 240);
+}
+.line{
+    float: left;
+    width: 100%;
+    height: 60px;
+    border-bottom: solid 1px RGB(227, 227, 227);
+    background: #ffffff;
+}
+.top_line{
+    margin-top: 10px;
+    border-top: solid 1px RGB(227, 227, 227);
+}
+.line_img{
+    float: left;
+    width: 20px;
+    margin-top: 20px;
+    margin-left: 12px;
+}
+.line_title{
+    float: left;
+    line-height: 60px;
+    font-size: 15px;
+    color: #636363;
+    margin-left: 10px;
+}
+.line_switch{
+    float: right;
+    margin-right: 12px;
+    margin-top: 13px;
+}
+.login_out_button{
+    float: left;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 30px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #3086c3;
+    border-radius: 20px;
+}

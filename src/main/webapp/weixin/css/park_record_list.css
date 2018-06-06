@@ -1,0 +1,125 @@
+body{
+    background: RGB(240, 240, 240);
+}
+.scroller li{
+    padding: 0px;
+}
+.record_div{
+    width: 100%;
+    margin-top: 5px;
+    border-top: RGB(227, 227, 227) solid 1px;
+    border-bottom: RGB(227, 227, 227) solid 1px;
+    background: #ffffff;
+    height: 160px;
+}
+.record_text1{
+    float: left;
+    width: 94%;
+    padding: 0 3%;
+    height: 25px;
+    margin: 15px 0 5px 0px;
+}
+.record_text_title{
+    float: left;
+    line-height: 25px;
+    font-size: 15px;
+    color: #212121;
+}
+.record_text_type{
+    float: right;
+    font-size: 15px;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 8px;
+    background: #3086c3;
+    color: #ffffff;
+    border-radius: 25px;
+}
+.orange_back{
+    background: RGB(243, 189, 71);
+}
+.record_text2{
+    float: left;
+    width: 94%;
+    padding: 0 3%;
+    height: 25px;
+    margin-top: 5px;
+    line-height: 25px;
+    font-size: 15px;
+    color: #636363;
+}
+.record_text_time_left{
+    float: left;
+}
+.record_text_time_right{
+    float: right;
+}
+.record_text3{
+    float: left;
+    width: 94%;
+    margin-left: 3%;
+    margin-right: 3%;
+    height: 44px;
+    margin-top: 10px;
+    border-top: RGB(227, 227, 227) solid 1px;
+    font-size: 15px;
+    line-height: 44px;
+    color: #636363;
+}
+.record_text_left{
+    float: left;
+}
+.blue_font{
+    color: #3086c3;
+}
+.record_text_right{
+    float: right;
+}
+.record_text3 div span{
+    color: RGB(255, 90, 90);
+}
+.record_text_arrow{
+    float: right;
+    width: 10px;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+.scroller .order_none_div{
+    padding: 0px;
+    width: 100%;
+    margin-top: 0px;
+    background: RGB(240, 240, 240);
+    border: none;
+}
+.order_none_img{
+    float: left;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 100px;
+}
+.order_none_img img{
+    width: 50%;
+    display: inline-block;
+}
+.order_none_text{
+    float: left;
+    width: 100%;
+    font-size: 16px;
+    color: #212121;
+    text-align: center;
+    margin-top: 20px;
+}
+.scroller .receipt_list{
+    margin: 5px 3% 0px 3%;
+    height: 24px;
+    min-height: 24px;
+    background: none;
+}
+.scroller .receipt_list div{
+    float: right;
+    color: #666666;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: right;
+}

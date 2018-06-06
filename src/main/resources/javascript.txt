@@ -1,0 +1,6 @@
+//mybatis 自动生成Java文件及xml
+java -jar G:\mybatisgenerate\mybatis-generator-1.3.5\mybatis-generator-core-1.3.5\lib\mybatis-generator-core-1.3.5.jar -configfile G:\mybatisgenerate\mybatis-generator-1.3.5\mybatis-generator-core-1.3.5\lib\generator.xml -overwrite
+
+
+//java  启动
+java -jar xxx-1.0.0.jar --spring.profiles.active=dev(default)/test/production

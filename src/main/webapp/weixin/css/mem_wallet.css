@@ -1,0 +1,45 @@
+body{
+    background: #f0f0f0;
+}
+.line{
+    float: left;
+    width: 90%;
+    padding: 0 5%;
+    background: #ffffff;
+    border-bottom: #e3e3e3 solid 1px;
+    height: 60px;
+}
+.first{
+    margin-top: 10px;
+    border-top: #e3e3e3 solid 1px;
+}
+.line_top{
+    float: left;
+    width: 30px;
+    margin-top: 16px;
+}
+.first .line_top{
+    margin-top: 16px;
+}
+.line_title{
+    float: left;
+    line-height: 60px;
+    font-size: 15px;
+    color: #636363;
+    margin-left: 10px;
+}
+.line_arrow{
+    float: right;
+    width: 8px;
+    margin: 24.5px 0 0 10px;
+}
+.line_detail{
+    float: right;
+    line-height: 60px;
+    height: 60px;
+    font-size: 15px;
+    color: #636363;
+}
+.line_detail .red{
+    color: #ff5a5a;
+}

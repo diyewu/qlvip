@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>找车位</title>
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/wap_show_tools.css">
+<link rel="stylesheet" href="css/main1119.css">
+<link rel="stylesheet" href="css/park_list.css">
+
+<script type="text/javascript" src="js/jquery_1.9.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/wap_show_tools.js"></script>
+<script type="text/javascript" src="js/park_list.js"></script>
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.7&key=4e7974f854b5d6a5368662dc3204c262"></script> 
+</head>
+<body>
+	<div class="search_div">
+		<div class="search_input">
+			<img src="images/findpark.png"> <input placeholder="搜索停车场"
+				onfocus="showSearch();autoComplete(this);"
+				oninput="autoComplete(this);" type="text">
+		</div>
+		<div class="search_cancel" onclick="hiddenSearch();">取消</div>
+	</div>
+	<div class="current_address">
+		<img src="images/icon_search_dangqianweizhi@3x.png">
+		<div></div>
+	</div>
+	<div class="sel_address"></div>
+	<div class="sel_park">
+	<!-- 
+		<div class="sel_park_div">
+			<div class="sel_park_div_1" onclick="showInMap();">
+				<div class="sel_park_div_name">汉庭酒店（江桥店）</div>
+			</div>
+			<div class="sel_park_div_2">
+				<div class="sel_park_div_pay">
+					<img src="images/icon_search_payment_green@3x.png">支持手机支付
+				</div>
+
+				<span>|</span>
+				<div class="sel_park_div_stock">空闲车位：26</div>
+			</div>
+			<div class="sel_park_div_3">
+				<div class="sel_park_div_price">
+					收费： <span class="red">1</span>元/小时
+				</div>
+				<div class="sel_park_div_distance">距离：828.6m</div>
+			</div>
+		</div>
+		<div class="sel_park_div">
+			<div class="sel_park_div_1" onclick="naviBaidu();">
+				<div class="sel_park_div_name">新世界休闲生活广场B区</div>
+			</div>
+			<div class="sel_park_div_2">
+				<div class="sel_park_div_pay">
+					<img src="images/icon_search_payment_green@3x.png">支持手机支付
+				</div>
+				<span>|</span>
+				<div class="sel_park_div_stock">空闲车位：0</div>
+			</div>
+			<div class="sel_park_div_3">
+				<div class="sel_park_div_price">
+					收费： <span class="red">5</span>元/小时
+				</div>
+				<div class="sel_park_div_distance">距离：2.7km</div>
+			</div>
+		</div>
+
+		<div class="sel_park_div">
+			<div class="sel_park_div_1">
+				<div class="sel_park_div_name" onclick="naviBaidu();">五月花广场B2</div>
+			</div>
+			<div class="sel_park_div_2">
+				<div class="sel_park_div_pay">
+					<img src="images/icon_search_payment_green@3x.png">支持手机支付
+				</div>
+				<span>|</span>
+				<div class="sel_park_div_stock">空闲车位：0</div>
+			</div>
+			<div class="sel_park_div_3">
+				<div class="sel_park_div_price">
+					收费： <span class="red">0</span>元/小时
+				</div>
+				<div class="sel_park_div_distance">距离：11.6km</div>
+			</div>
+		</div>
+		-->
+	</div>
+	
+	<div class="park_type">
+		<div class="park_type_line"></div>
+		<div
+			class="park_type_button park_type_button_left park_type_button_selected"
+			onclick="insertParkList('',0);">
+			<span>手机支付</span>
+			<div class="park_type_button_point">
+				<div></div>
+			</div>
+		</div>
+		<div class="park_type_button park_type_button_right"
+			onclick="insertParkList('',2);">
+			<span>全部</span>
+			<div class="park_type_button_point">
+				<div></div>
+			</div>
+		</div>
+		 
+	</div>
+	<div class="order_navi">
+		<input id="orderParkName" type="hidden"> <input id="orderLng"
+			type="hidden"> <input id="orderLat" type="hidden">
+		<div class="order_navi_back"></div>
+		<div class="order_navi_div">
+			<div class="order_navi_div_text_1"></div>
+			<div class="order_navi_div_text_2">是否确认预订停车位并导航？</div>
+			<div class="order_navi_div_button order_navi_div_button_1"
+				onclick="naviOrder(1);">预订&amp;导航</div>
+			<div class="order_navi_div_button order_navi_div_button_2"
+				onclick="naviOrder(2);">预订</div>
+			<div class="order_navi_div_button order_navi_div_button_3"
+				onclick="naviOrder(3);">导航</div>
+			<div class="order_navi_div_button"
+				onclick="$('.order_navi').css('display', 'none');">取消</div>
+		</div>
+	</div>
+	<div class="order_navi_succ">
+		<div class="order_navi_succ_back"
+			onclick="$('.order_navi_succ').css('display', 'none');"></div>
+		<div class="order_navi_succ_div">
+			<img> <span></span>
+			<div onclick="$('.order_navi_succ').css('display', 'none');">确认</div>
+		</div>
+	</div>
+
+
+
+	<div class="loading_view_div" style="display: none;">
+		<div class="loading_view_content">
+			<div class="loading_view_content_img">
+				<div
+					class="loading_view_content_img_leaf loading_view_content_img_leaf_0"></div>
+				<div
+					class="loading_view_content_img_leaf loading_view_content_img_leaf_1"></div>
+				<div
+					class="loading_view_content_img_leaf loading_view_content_img_leaf_2"></div>
+				<div
+					class="loading_view_content_img_leaf loading_view_content_img_leaf_3"></div>
+				<div
+					class="loading_view_content_img_leaf loading_view_content_img_leaf_4"></div>
+				<div
+					class="loading_view_content_img_leaf loading_view_content_img_leaf_5"></div>
+				<div
+					class="loading_view_content_img_leaf loading_view_content_img_leaf_6"></div>
+				<div
+					class="loading_view_content_img_leaf loading_view_content_img_leaf_7"></div>
+				<div
+					class="loading_view_content_img_leaf loading_view_content_img_leaf_8"></div>
+				<div
+					class="loading_view_content_img_leaf loading_view_content_img_leaf_9"></div>
+				<div
+					class="loading_view_content_img_leaf loading_view_content_img_leaf_10"></div>
+				<div
+					class="loading_view_content_img_leaf loading_view_content_img_leaf_11"></div>
+			</div>
+		</div>
+		<div class="loading_view_back"></div>
+	</div>
+</body>
+</html>

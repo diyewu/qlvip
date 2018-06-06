@@ -1,0 +1,106 @@
+body{
+    background: RGB(240, 240, 240);
+}
+.scroller li{
+    width: 94%;
+    padding: 0 3%;
+    margin-top: 5px;
+    border-top: RGB(227, 227, 227) solid 1px;
+    border-bottom: RGB(227, 227, 227) solid 1px;
+    background: #ffffff;
+    height: 115px;
+}
+.order_line{
+    float: left;
+    width: 100%;
+    height: 40px;
+    border-bottom: RGB(227, 227, 227) solid 1px;
+}
+.order_left{
+    float: left;
+    line-height: 40px;
+    font-size: 15px;
+    color: #212121;
+}
+.order_left div{
+    float: left;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    margin: 17px 10px 0 0;
+}
+.order_left_blue{
+    background: #3086c3;
+}
+.order_left_grey{
+     background: RGB(227, 227, 227);
+ }
+.order_right{
+    float: right;
+    font-size: 15px;
+    line-height: 40px;
+    color: #3086c3;
+    text-decoration: underline;
+}
+.order_line_1{
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+.order_line_1_left{
+    float: left;
+    font-size: 15px;
+    color: #212121;
+    line-height: 25px;
+}
+.order_line_1_right{
+    float: right;
+    font-size: 15px;
+    color: #212121;
+    line-height: 25px;
+}
+.order_line_1_right span{
+    color: #212121;
+}
+.order_red span{
+    color: RGB(250, 90, 90);
+}
+.order_line_2{
+    float: left;
+    width: 85%;
+    font-size: 14px;
+    color: #636363;
+    line-height: 24px;
+    margin: 5px 0 10px 0;
+}
+.order_arrow{
+    float: right;
+    width: 8px;
+    margin-top: 31px;
+}
+.scroller .order_none_div{
+    padding: 0px;
+    width: 100%;
+    margin-top: 0px;
+    background: RGB(240, 240, 240);
+    border: none;
+}
+.order_none_img{
+    float: left;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 100px;
+}
+.order_none_img img{
+    width: 50%;
+    display: inline-block;
+}
+.order_none_text{
+    float: left;
+    width: 100%;
+    font-size: 16px;
+    color: #212121;
+    text-align: center;
+    margin-top: 20px;
+}

@@ -1,0 +1,117 @@
+body{
+    background-color: RGB(240, 240, 240);
+}
+.car_add_tip{
+    float: left;
+    width: 90%;
+    padding: 15px 5% 0 5%;
+    font-size: 16px;
+    color: #636363;
+    line-height: 25px;
+    background: #ffffff;
+}
+.car_add_input{
+    float: left;
+    width: 90%;
+    padding: 15px 5% 15px 5%;
+    background: #ffffff;
+}
+.car_add_input_left{
+    float: left;
+    width: 12%;
+    display: block;
+    text-align: left;
+}
+.car_add_input_mid{
+    float: left;
+    width: 4%;
+    display: block;
+    text-align: center;
+}
+.car_add_input_right{
+    float: left;
+    width: 12%;
+    display: block;
+    text-align: right;
+}
+.car_num_input{
+    display: inline-block;
+    background-color: RGB(240, 240, 240);
+    border: 1px solid RGB(227, 227, 227);
+    color: #636363;
+    text-align: center;
+}
+.car_add_input_point{
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: #3086c3;
+}
+.car_add_button{
+    float: left;
+    width: 90%;
+    margin: 10px 5% 0 5%;
+    background: RGB(196, 196, 196);
+    color: #ffffff;
+    line-height: 40px;
+    border-radius: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+.car_add_button_ok{
+    background: #3086c3;
+}
+.board_div{
+    display: block;
+}
+.new_flag{
+    float: left;
+    width: 90%;
+    padding: 5px 5% 0px 5%;
+}
+.new_flag div{
+    float: right;
+    text-align: right;
+    font-size: 14px;
+    color: #333333;
+    line-height: 29px;
+}
+.new_flag img{
+    float: right;
+    width: 15px;
+    margin: 7px 10px 0 0;
+}
+@media screen and (max-width: 340px){
+    .car_num_input{
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 14px;
+    }
+    .car_add_input_point{
+        margin-top: 11px;
+    }
+}
+@media screen and (min-width: 341px) and (max-width: 410px){
+    .car_num_input{
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 16px;
+    }
+    .car_add_input_point{
+        margin-top: 14px;
+    }
+}
+@media screen  and (min-width: 411px){
+    .car_num_input{
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        font-size: 18px;
+    }
+    .car_add_input_point{
+        margin-top: 16px;
+    }
+}

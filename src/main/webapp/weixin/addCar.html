@@ -1,0 +1,63 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>添加车牌</title>
+  
+  <link rel="stylesheet" href="css/base.css"  >
+  <link rel="stylesheet" href="css/main.css"  >
+  <link rel="stylesheet" href="css/wap_show_tools.css"  >
+  <link rel="stylesheet" href="css/car_add.css"  >
+
+  <script type="text/javascript" src="js/jquery_1.9.min.js" ></script>
+  <script type="text/javascript" src="js/base.js"></script>
+  <script type="text/javascript" src="js/wap_show_tools.js" ></script>
+  <script type="text/javascript" src="js/car_add.js"  ></script>
+</head>
+<body>
+  <input type="hidden" value="" id="contextPath">
+  <input type="hidden" value="" id="car_num_input_hidden">
+  <input type="hidden" value="" id="update_car_num">
+  <input type="hidden" value="0" id="new_flag">
+  <input type="hidden" value="1" id="type">
+  <div class="car_add_tip">请绑定真实有效的车牌号</div>
+  <div class="car_add_input">
+    <div class="car_add_input_left">
+      <div class="car_num_input car_num_input_1"></div>
+    </div>
+    <div class="car_add_input_left">
+      <div class="car_num_input car_num_input_2"></div>
+    </div>
+    <div class="car_add_input_mid">
+      <div class="car_add_input_point"></div>
+    </div>
+    <div class="car_add_input_right">
+      <div class="car_num_input car_num_input_3"></div>
+    </div>
+    <div class="car_add_input_right">
+      <div class="car_num_input car_num_input_4"></div>
+    </div>
+    <div class="car_add_input_right">
+      <div class="car_num_input car_num_input_5"></div>
+    </div>
+    <div class="car_add_input_right">
+      <div class="car_num_input car_num_input_6"></div>
+    </div>
+    <div class="car_add_input_right">
+      <div class="car_num_input car_num_input_7"></div>
+    </div>
+    <div class="car_add_input_right">
+      <div class="car_num_input car_num_input_8"></div>
+    </div>
+  </div>
+  <div class="new_flag" onclick="clickNewFlag();">
+    <div>新能源车牌</div>
+    <img src="images/icon_addfunds_n@3x.png"  >
+  </div>
+  <div class="car_add_button" onclick="updateOrAddCarNum(this);">确认</div>
+</body>
+</html>
