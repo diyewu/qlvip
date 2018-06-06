@@ -5,11 +5,12 @@ $(function() {
 
 function init(){
 	var code = getParam("code");
+//	alert(code);
 	getUserInfo(code);
 	
 }
 function getUserInfo(code){
-	$("body").showLoadingView();
+//	$("body").showLoadingView();
 	jQuery.ajax({  
 	    url: "../wechat/getMemberInfoByCode/",  
 	    type: "post",  
@@ -19,7 +20,7 @@ function getUserInfo(code){
 	    	authCode:code
 	    },  
 	    success: function(result){  
-	    	$("body").hiddenLoadingView();
+//	    	$("body").hiddenLoadingView();
 			if(result.success == true){//登陆成功
 				var data = result.data;
 				if(data.state){
@@ -38,13 +39,7 @@ function getUserInfo(code){
 					});
 				}
 			}else {//验证失败
-				$("body").alertDialog({
-                    title: "提示",
-                    text: result.msg,
-                    okFtn: function(){
-                        window.location.href = "validateMobile.html";
-                    }
-                });
+                window.location.href = "validateMobile.html";
 			}
 	    }  
 	});  

@@ -32,13 +32,7 @@ public class WeixinHelper {
 	public static void main(String[] args) {
 		// System.out.println(getAccessToken("wxc03cad31c1ceb8f3",
 		// "d4624c36b6795d1d99dcf0547af5443d"));
-		TextMessage textMessage = new TextMessage();
-		textMessage.setMsgType(WeixinConstants.MESSAGE_TEXT);
-		textMessage.setToUserName("1111");
-		textMessage.setFromUserName("2222222");
-		textMessage.setCreateTime(System.currentTimeMillis() + "");
-		textMessage.setContent("3asdasdasdsa");
-		System.out.println(convertToXml(textMessage));
+		System.out.println(getAccessToken("", ""));
 	}
 
 	/**

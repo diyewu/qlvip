@@ -8,6 +8,7 @@ server:
 spring:
     datasource:
         name: test
+#        url: jdbc:mysql://19w235891x.iask.in:48365/scpos2
         url: jdbc:mysql://localhost:3306/qlvip
         username: root
         password: 123456

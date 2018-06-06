@@ -5,9 +5,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated"/>
-        <dependent-module archiveName="swagger-ui-layer-0.0.2.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/swagger-ui-layer/swagger-ui-layer">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="context-root" value="qlvip"/>
         <property name="java-output-path" value="/qlvip/target/classes"/>
     </wb-module>

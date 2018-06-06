@@ -50,5 +50,27 @@ public class OrderService {
 		jdbcTemplate.update(sql, openId,mobile);
 	}
 	
+	/**
+	 * 检查是否是线下会员
+	 */
+	public boolean checkMobileIsOffline(String mobile){
+		String sql = " select * from sc_member where phone = ?  ";
+		List<Map<String, Object>> list = jdbcTemplate.queryForList(sql, mobile);
+		if(list != null && list.size()>0){
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean checkBind(String mobile){
+		String sql = " select * from weixin_account where mobile = ? ";
+		List<Map<String, Object>> list = jdbcTemplate.queryForList(sql, mobile);
+		if(list != null && list.size()>0){
+			return true;
+		}
+		return false;
+	} 
+	
+	
 	
 }

@@ -180,6 +180,19 @@ public class WeixinAccessController extends BaseController{
 				}
 			}
 			
+			//校验该手机号码是否已经是线下会员
+			if (code == 0) {
+				if(!orderService.checkMobileIsOffline(mobileNumber)){
+					code = ServerResult.RESULT_MEMBER_CHECK_ERROR;
+				}
+			}
+			//检查是否已经绑定，已经绑定则无需重新绑定
+			if (code == 0) {
+				if(orderService.checkBind(mobileNumber)){
+					code = ServerResult.RESULT_MEMBER_REPEAT_BIND_ERROR;
+				}
+			}
+			
 			//校验当天剩余次数
 			if (code == 0) {
 				list = smartMemberService.getLastSendCodeTime(mobileNumber);
@@ -203,7 +216,9 @@ public class WeixinAccessController extends BaseController{
 //										MailSam.send(customConfig.getSmtp(), customConfig.getPort(), customConfig.getUser(), customConfig.getPwd(), "930725713@qq.com", "测试手机验证码", content);
 										map.put("code", mobileCode);
 										session.setAttribute(WeixinConstants.SESSION_WEIXIN_USER_MOBILE, mobileNumber);
+										System.out.println("发送成功----"+mobileNumber);
 										session.setAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE, mobileCode);
+										System.out.println("发验证码----"+mobileCode);
 									} catch (Exception e) {
 										code = ServerResult.RESULT_SERVER_ERROR;
 										msg = e.getMessage();
@@ -256,8 +271,10 @@ public class WeixinAccessController extends BaseController{
 			String sessionValidateCode = session.getAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE)+"";
 			session.setAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE, "");
 			String memberId = "";
+			System.out.println("mobile="+mobile);
+			System.out.println("sessionValidateCode="+sessionValidateCode);
 			if (StringUtils.isBlank(sessionValidateCode)) {
-				code = ServerResult.RESULT_MOBILE_CODE_VALIDATE_ERROR;
+				code = ServerResult.RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR;
 			}
 			if (code == 0) {
 				if (StringUtils.isNotBlank(mobile)) {

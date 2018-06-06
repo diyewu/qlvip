@@ -24,6 +24,8 @@ import org.apache.commons.lang.StringUtils;
     50012:名下登记车辆总数超过最大数量
     50013:车辆信息校验错误
     50014:车辆权限信息校验失败
+    
+    60001:您尚未成为本店会员
  * @author 吴迪叶
  *
  */
@@ -78,6 +80,15 @@ public class ServerResult {
 	public final static int RESULT_CAR_AUTH_VALIDATE_ERROR = 50014;
 	public final static String RESULT_CAR_AUTH_VALIDATE_ERROR_MSG = "车辆权限信息校验失败";
 	
+	public final static int RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR = 50015;
+	public final static String RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR_MSG = "手机验证码获取失败";
+	
+	public final static int RESULT_MEMBER_CHECK_ERROR = 60001;
+	public final static String RESULT_MEMBER_CHECK_ERROR_MSG = "您尚未成为本店会员";
+	
+	public final static int RESULT_MEMBER_REPEAT_BIND_ERROR = 60002;
+	public final static String RESULT_MEMBER_REPEAT_BIND_ERROR_MSG = "您已经绑定过会员，无需重新绑定";
+	
 	
 	public static Map<Integer,String> ServerResultMap = new HashMap<Integer, String>();
 	static{
@@ -97,6 +108,9 @@ public class ServerResult {
 		ServerResultMap.put(RESULT_MAX_CAR_ERROR, RESULT_MAX_CAR_ERROR_MSG);
 		ServerResultMap.put(RESULT_CAR_VALIDATE_ERROR, RESULT_CAR_VALIDATE_ERROR_MSG);
 		ServerResultMap.put(RESULT_CAR_AUTH_VALIDATE_ERROR, RESULT_CAR_AUTH_VALIDATE_ERROR_MSG);
+		ServerResultMap.put(RESULT_MEMBER_CHECK_ERROR, RESULT_MEMBER_CHECK_ERROR_MSG);
+		ServerResultMap.put(RESULT_MEMBER_REPEAT_BIND_ERROR, RESULT_MEMBER_REPEAT_BIND_ERROR_MSG);
+		ServerResultMap.put(RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR, RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR_MSG);
 	}
 	
 	
