@@ -32,10 +32,10 @@
 
         <nav role="navigation" class="probootstrap-nav hidden-xs">
           <ul class="probootstrap-main-nav">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li class="active"><a href="contact.html">Contact</a></li>
           </ul>
           <div class="extra-text visible-xs"> 
             <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
@@ -51,12 +51,12 @@
   </header>
   <!-- END: header -->
   <section class="probootstrap-slider flexslider">
-    <div class="probootstrap-text-intro">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; z-index: 49;">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <div class="probootstrap-slider-text text-center">
-              <h1 class="probootstrap-heading probootstrap-animate mb20" data-animate-effect="fadeIn">100% Organic</h1>
+              <h1 class="probootstrap-heading probootstrap-animate mb20" data-animate-effect="fadeIn">Contact</h1>
               <div class="probootstrap-animate probootstrap-sub-wrap mb30" data-animate-effect="fadeIn">A new website template by <a href="https://sc.chinaz.com/">sc.chinaz.com</a> under license <a href="https://sc.chinaz.com/license/">Creative Commons 3.0</a></div>
               <p class="probootstrap-animate" data-animate-effect="fadeIn"><a href="#" class="btn btn-ghost btn-ghost-white">Get This</a></p>
             </div>
@@ -72,74 +72,57 @@
   <!-- END: slider  -->
   <section class="probootstrap-section">
     <div class="container">
+      <div class="probootstrap-section-heading text-center mb50 probootstrap-animate">
+        <h4 class="sub-heading">Get In Touch</h4>
+        <h2 class="heading">Let's Chat</h2>
+      </div>
       <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 probootstrap-animate" data-animate-effect="fadeIn">
-          <div class="product-item">
-            <figure><img src="img/img_1.jpg" alt="Free Template by sc.chinaz.com" class="img-responsive"></figure>
-            <div class="text">
-              <h2 class="heading">Organic Dragon Fruit</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <p><a href="#" class="btn btn-primary btn-sm">View Details</a></p>
+        <div class="col-md-8">
+          <form action="#" method="post" class="probootstrap-form mb60">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="fname">First Name</label>
+                  <input type="text" class="form-control" id="fname" name="fname">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="lname">Last Name</label>
+                  <input type="text" class="form-control" id="lname" name="lname">
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 probootstrap-animate" data-animate-effect="fadeIn">
-          <div class="product-item">
-            <figure><img src="img/img_2.jpg" alt="Free Template by sc.chinaz.com" class="img-responsive"></figure>
-            <div class="text">
-              <h2 class="heading">Organic Sprout Veggie</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <p><a href="#" class="btn btn-primary btn-sm">View Details</a></p>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email">
             </div>
-          </div>
-        </div>
-        <div class="clearfix visible-sm-block"></div>
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 probootstrap-animate" data-animate-effect="fadeIn">
-          <div class="product-item">
-            <figure><img src="img/img_3.jpg" alt="Free Template by sc.chinaz.com" class="img-responsive"></figure>
-            <div class="text">
-              <h2 class="heading">Organic Watercress</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <p><a href="#" class="btn btn-primary btn-sm">View Details</a></p>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea cols="30" rows="10" class="form-control" id="message" name="message"></textarea>
             </div>
-          </div>
-        </div>
-        <div class="clearfix visible-lg-block visible-md-block"></div>
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 probootstrap-animate" data-animate-effect="fadeIn">
-          <div class="product-item">
-            <figure><img src="img/img_4.jpg" alt="Free Template by sc.chinaz.com" class="img-responsive"></figure>
-            <div class="text">
-              <h2 class="heading">Organic Carrots</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <p><a href="#" class="btn btn-primary btn-sm">View Details</a></p>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" id="submit" name="submit" value="Send Message">
             </div>
-          </div>
+          </form>
         </div>
-        <div class="clearfix visible-sm-block"></div>
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 probootstrap-animate" data-animate-effect="fadeIn">
-          <div class="product-item">
-            <figure><img src="img/img_5.jpg" alt="Free Template by sc.chinaz.com" class="img-responsive"></figure>
-            <div class="text">
-              <h2 class="heading">Organic Bell Pepper</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <p><a href="#" class="btn btn-primary btn-sm">View Details</a></p>
-            </div>
-          </div>
+        <div class="col-md-3 col-md-push-1">
+          <h4>Contact Information</h4>
+          <ul class="with-icon colored">
+            <li><i class="icon-location2"></i> <span>198 West 21th Street, Suite 721 New York NY 10016</span></li>
+            <li><i class="icon-mail"></i><span>info@domain.com</span></li>
+            <li><i class="icon-phone2"></i><span>+123 456 7890</span></li>
+          </ul>
+
+          <h4>Feedback</h4>
+          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          <p><a href="#">Learn More</a></p>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 probootstrap-animate" data-animate-effect="fadeIn">
-          <div class="product-item">
-            <figure><img src="img/img_6.jpg" alt="Free Template by sc.chinaz.com" class="img-responsive"></figure>
-            <div class="text">
-              <h2 class="heading">Organic Cucumber</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <p><a href="#" class="btn btn-primary btn-sm">View Details</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="clearfix visible-lg-block visible-md-block"></div>
       </div>
     </div>
   </section>  
+  <div id="map"></div>
+
 
   <section class="probootstrap-section probootstrap-bg" style="background-image: url(img/slider_2.jpg);">
     <div class="container text-center">
@@ -154,7 +137,7 @@
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 probootstrap-animate">
           <div class="service">
             <div class="icon"><i class="icon-leaf"></i></div>
-            <h2 class="heading">Fresh Veggies &amp; Fruits</h2>
+            <h2 class="heading">Fresh Vegies &amp; Fruits</h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
           </div>
@@ -278,7 +261,11 @@
 
   <script src="js/scripts.min.js"></script>
   <script src="js/main.min.js"></script>
-  <script src="js/custom.js"></script>
 
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+
+  <script src="js/custom.js"></script>
   </body>
 </html>

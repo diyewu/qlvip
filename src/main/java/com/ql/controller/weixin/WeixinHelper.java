@@ -49,7 +49,7 @@ public class WeixinHelper {
 	 */
 	public static String getAccessToken(String appId, String appSecret) {
 		ObjectMapper mapper = new ObjectMapper();
-		String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxc03cad31c1ceb8f3&secret=d4624c36b6795d1d99dcf0547af5443d";
+		String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx4307e5a5bb1ced6c&secret=cda03704e18865361c18583bfef73358";
 		// String url = "https://api.weixin.qq.com/cgi-bin/token?";
 		String accessToken = "";
 		try {
@@ -173,7 +173,7 @@ public class WeixinHelper {
 			String EventKey = map.get("EventKey");
 			String resp = MessageHandler.processMsg(EventKey);
 			if("subscribe".equals(Event)){//subscribe(订阅)
-				resp = "如果停留在首页等待，则表示当前为调试时间段，如需测试完整功能，请联系管理员：18936483081 进行开放处理！";
+				resp = "欢迎光临芊乐零食屋，祝您购物愉快。";
 			}
 			TextMessage textMessage = new TextMessage();
 			textMessage.setMsgType(WeixinConstants.MESSAGE_TEXT);

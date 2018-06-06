@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -29,9 +28,8 @@ import com.ql.controller.BaseController;
 import com.ql.entity.CustomConfig;
 import com.ql.entity.SmartMember;
 import com.ql.model.json.JsonModel;
+import com.ql.service.OrderService;
 import com.ql.service.SmartMemberService;
-import com.ql.utils.DateHelper;
-import com.ql.utils.MailSam;
 import com.ql.utils.SignUtil;
 
 import io.swagger.annotations.ApiOperation;
@@ -42,6 +40,8 @@ import io.swagger.annotations.ApiParam;
 public class WeixinAccessController extends BaseController{
 	@Autowired
 	private SmartMemberService smartMemberService;
+	@Autowired
+	private OrderService orderService;
 	@Autowired  
     private CustomConfig customConfig; 
 	
@@ -102,9 +102,9 @@ public class WeixinAccessController extends BaseController{
      * @param authCode
      */
     @ApiOperation(value = "根据微信网页授权code获取openId", notes = "根据微信网页授权code获取openId", httpMethod = "POST")
-    @RequestMapping(value="getCarParkInfoByCode",method = RequestMethod.POST)
+    @RequestMapping(value="getMemberInfoByCode",method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel getCarParkInfoByCode(@ApiParam(name = "authCode", value = "用户同意授权，获取code", required = true) @RequestParam("authCode") String authCode
+    public JsonModel getMemberInfoByCode(@ApiParam(name = "authCode", value = "用户同意授权，获取code", required = true) @RequestParam("authCode") String authCode
     		){
     	System.out.println("authCode="+authCode);
 //    	return null;
@@ -130,28 +130,9 @@ public class WeixinAccessController extends BaseController{
 			}
 			if(code == 0){
 				// 得到openid走业务逻辑，如果数据库中存在则查询数据，如果没有绑定手机号
-				List<Map<String, Object>> list = smartMemberService.checkMemberByOpenId(openId);
-				if(list != null && list.size()>0){//存在,查询当前停车信息，展示出来
+				List<Map<String, Object>> list = orderService.getMemberInfoByOpenId(openId);
+				if(list != null && list.size()>0){//存在,则停留在这里
 					map.put("state", "1");
-					String memberId = (String)list.get(0).get("id");
-					session.setAttribute(WeixinConstants.SESSION_MEMBER_ID, memberId);
-					List<Map<String, Object>> carParkList = smartMemberService.getCarParkStateByMemId(memberId);
-					List<Map<String, Object>> respList = new ArrayList<Map<String,Object>>();
-					if(carParkList != null && carParkList.size()>0){
-						Map<String, Object> tmap = new HashMap<String, Object>();
-						for(int i=0;i<carParkList.size();i++){
-							tmap = new HashMap<String, Object>();
-							tmap = carParkList.get(i);
-							String begin_time = (String)tmap.get("begin_time");
-							tmap.put("diff_time", "0小时0分钟");
-							if(StringUtils.isNotBlank(begin_time)){
-								String DateDiff = DateHelper.getDateDiffengt(begin_time);
-								tmap.put("diff_time", DateDiff);
-							}
-							respList.add(tmap);
-						}
-					}
-					map.put("carstate", respList);
 				}else{//不存在，跳转到手机注册页面
 					map.put("state", "0");
 				}
@@ -290,19 +271,14 @@ public class WeixinAccessController extends BaseController{
 			//手机验证码验证成功之后，插入会员信息
 			if (code == 0) {
 				//根据openid获取会员信息
-				List<Map<String, Object>> list = smartMemberService.getMemberINfoByOpenId(openId);
+				List<Map<String, Object>> list = orderService.getMemberInfoByOpenId(openId);
 				if(list != null && list.size()>0){
 					memberId = (String)list.get(0).get("id");
 				}
-				SmartMember smartMember = new SmartMember();
 				if(StringUtils.isNotBlank(memberId)){//验证手机验证码，如果是已存在的会员，则无需更新
-//					smartMember.setId(memberId);
-//					SESSION_MEMBER_ID
 					session.setAttribute(WeixinConstants.SESSION_MEMBER_ID, memberId);
-				}else{
-					smartMember.setMobile(mobile);
-					smartMember.setOpenId(openId);
-					smartMemberService.updateMember(smartMember);
+				}else{//插入会员
+					orderService.insertOpenid(openId, mobile);
 				}
 			} 
 		} catch (Exception e) {
