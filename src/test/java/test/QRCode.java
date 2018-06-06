@@ -20,8 +20,8 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.Result;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
-import com.xz.utils.BufferedImageLuminanceSource;
-import com.xz.utils.MatrixToImageWriter;
+import com.ql.utils.BufferedImageLuminanceSource;
+import com.ql.utils.MatrixToImageWriter;
 
 public class QRCode {
 

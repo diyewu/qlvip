@@ -16,7 +16,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.ql.common.ServerResult;
-import com.ql.common.Simp2TranUtils;
 import com.ql.entity.AppLoginBean;
 import com.ql.utils.AgingCache;
 
@@ -87,15 +86,6 @@ public class BaseController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	protected void resultSuccess(String message, Object data, long total,HttpServletResponse response) {
-		Result result = new Result();
-		result.setSuccess(true);
-		result.setMessage(Simp2TranUtils.simp2tran(message));
-		result.setData(data);
-		result.setTotal((int) total);
-		writeJson(result,response);
 	}
 	
 	 public static boolean isMobile(final String str) {  
