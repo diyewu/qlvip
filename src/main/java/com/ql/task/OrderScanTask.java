@@ -20,7 +20,7 @@ public class OrderScanTask {
 	
 	private static String orderNo = "";
 	/**
-	 * 每天30秒执行一次
+	 * 每分钟的30秒执行一次
 	 * https://www.cnblogs.com/softidea/p/5833248.html
 	 */
 	@Scheduled(cron="30 * * * * ?")
