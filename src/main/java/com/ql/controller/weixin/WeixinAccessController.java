@@ -30,6 +30,7 @@ import com.ql.entity.SmartMember;
 import com.ql.model.json.JsonModel;
 import com.ql.service.OrderService;
 import com.ql.service.SmartMemberService;
+import com.ql.utils.SMSUtil;
 import com.ql.utils.SignUtil;
 
 import io.swagger.annotations.ApiOperation;
@@ -44,6 +45,8 @@ public class WeixinAccessController extends BaseController{
 	private OrderService orderService;
 	@Autowired  
     private CustomConfig customConfig; 
+	
+	private final String smsTemplate = "【芊乐零食屋】尊敬的用户：您的验证码为：$code（60分钟内有效），为了保证您的账户安全，请勿向任何人提供此验证码。";
 	
     private static final Logger LOGGER = LoggerFactory.getLogger(WeixinAccessController.class);
 	/**
@@ -83,8 +86,10 @@ public class WeixinAccessController extends BaseController{
     @RequestMapping(value="access",method = RequestMethod.POST)
     @ResponseBody
     public void weixinCommunicate(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    	System.out.println("__________________________come in____");
     	try {
     		String resp = WeixinHelper.processRequest(request);
+    		System.out.println("___________________________resp="+resp);
     		this.printData(response, resp);
     	} catch (Exception e) {
     		e.printStackTrace();
@@ -169,6 +174,7 @@ public class WeixinAccessController extends BaseController{
 			//校验手机号码
 			boolean isMobile = isMobile(mobileNumber);
 			int mobileCode = (int) ((Math.random() * 9 + 1) * 100000);
+			String content= smsTemplate.replace("$code", mobileCode+"");
 			if (!isMobile) {
 				code = ServerResult.RESULT_MOBILE_VALIDATE_ERROR;
 			}
@@ -209,12 +215,10 @@ public class WeixinAccessController extends BaseController{
 								long second = diff / 1000;
 								if (second > 120) {//2分钟之后才能继续发送验证码
 									//TODO  发送验证码
-									String content="尊敬的用户：<br/>您的验证码为："+mobileCode+"（60分钟内有效，区分大小写），为了保证您的账户安全，请勿向任何人提供此验证码。";
 									try {
 										//插入数据库
 										smartMemberService.updateMobileCodeSend(mobileNumber, mobileCode);
-//										MailSam.send(customConfig.getSmtp(), customConfig.getPort(), customConfig.getUser(), customConfig.getPwd(), "930725713@qq.com", "测试手机验证码", content);
-										map.put("code", mobileCode);
+										SMSUtil.sendSMS(mobileNumber, content);
 										session.setAttribute(WeixinConstants.SESSION_WEIXIN_USER_MOBILE, mobileNumber);
 										System.out.println("发送成功----"+mobileNumber);
 										session.setAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE, mobileCode);
@@ -236,10 +240,12 @@ public class WeixinAccessController extends BaseController{
 					}
 				} else {
 					//TODO  第一次发送验证码，则直接发送，并存储数据库,存储次数为9
-					String content="尊敬的用户：<br/>您的验证码为："+mobileCode+"（60分钟内有效，区分大小写），为了保证您的账户安全，请勿向任何人提供此验证码。";
 					try {
-//						MailSam.send(customConfig.getSmtp(), customConfig.getPort(), customConfig.getUser(), customConfig.getPwd(), "930725713@qq.com", "测试手机验证码", content);
-						map.put("code", mobileCode);
+						SMSUtil.sendSMS(mobileNumber, content);
+						session.setAttribute(WeixinConstants.SESSION_WEIXIN_USER_MOBILE, mobileNumber);
+						System.out.println("发送成功--11--"+mobileNumber);
+						session.setAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE, mobileCode);
+						System.out.println("发验证码--11--"+mobileCode);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -271,6 +277,7 @@ public class WeixinAccessController extends BaseController{
 			String sessionValidateCode = session.getAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE)+"";
 			session.setAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE, "");
 			String memberId = "";
+			System.out.println("openId="+openId);
 			System.out.println("mobile="+mobile);
 			System.out.println("sessionValidateCode="+sessionValidateCode);
 			if (StringUtils.isBlank(sessionValidateCode)) {

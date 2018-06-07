@@ -164,10 +164,12 @@ public class WeixinHelper {
 			responseMessage = textMessageToXml(textMessage);
 		}else if(WeixinConstants.MESSAGE_EVENT.equals(msgType)){//click
 			String Event = map.get("Event");
-			String EventKey = map.get("EventKey");
-			String resp = MessageHandler.processMsg(EventKey);
+			String resp = "";
 			if("subscribe".equals(Event)){//subscribe(订阅)
 				resp = "欢迎光临芊乐零食屋，祝您购物愉快。";
+			}else if(WeixinConstants.MESSAGE_EVENT_CLICK.equals(Event)){
+				String EventKey = map.get("EventKey");
+				resp = MessageHandler.processMsg(EventKey);
 			}
 			TextMessage textMessage = new TextMessage();
 			textMessage.setMsgType(WeixinConstants.MESSAGE_TEXT);

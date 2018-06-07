@@ -11,9 +11,9 @@ public class MessageHandler {
 	
 	private final static String tempLateUrl = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN";
 	public static String processMsg(String content){
-		String resp = "欢迎使用停车系统！";
+		String resp = "欢迎光临芊乐零食屋！\n绑定会员请点击“绑定手机”菜单，绑定之后就可以接收消费信息啦!\n更多功能，敬请期待。";
 		if("connectus".equals(content)){
-			resp = "电话：021-0000000\n地址：上海市黄浦区南苏州路1305号3号门";
+			resp = "联系电话：15162790722\n地址：南通市通州区实验小学往东80米";
 		}
 		return resp;
 	}

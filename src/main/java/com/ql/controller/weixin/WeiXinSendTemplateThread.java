@@ -44,8 +44,8 @@ public class WeiXinSendTemplateThread extends Thread {
 		params.put("first", WechatTemplateMsg.item("尊敬的会员，您的订单已经支付成功", "#000000"));
 		params.put("keyword1", WechatTemplateMsg.item(memberNo, "#000000")); // 会员编号
 		params.put("keyword2", WechatTemplateMsg.item(date, "#000000")); // 消费时间
-		params.put("keyword3", WechatTemplateMsg.item(actuallypaid, "#000000")); // 消费金额：
-		params.put("keyword4", WechatTemplateMsg.item(deposit, "#000000")); // 卡中余额：
+		params.put("keyword3", WechatTemplateMsg.item(actuallypaid, "#FF0033")); // 消费金额：
+		params.put("keyword4", WechatTemplateMsg.item(deposit, "#33CC33")); // 卡中余额：
 		params.put("remark", WechatTemplateMsg.item("若对此订单有疑问，请及时联系店员小姐姐哦，谢谢！", "#000000"));
 		WechatTemplateMsg wechatTemplateMsg = new WechatTemplateMsg();
 		wechatTemplateMsg.setTemplate_id("qpXgZFCca3YI5Ktb-nobddSe1VqqoDOjKVTIuaKu18s"); // 消费成功模板ID

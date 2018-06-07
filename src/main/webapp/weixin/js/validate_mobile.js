@@ -68,8 +68,8 @@ function getCode(){
                     }
                 },1000);
                 $("body").alertDialog({
-                	title: "测试验证码：",
-                	text: result.data.code
+                	title: "注意",
+                	text: "验证码发送成功，请注意查收。"
                 });
             } else {
                 $("body").alertDialog({

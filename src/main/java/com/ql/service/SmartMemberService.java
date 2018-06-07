@@ -1,6 +1,7 @@
 package com.ql.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.base.Joiner;
 import com.ql.entity.SmartMember;
+import com.ql.utils.DateHelper;
 import com.ql.utils.SortableUUID;
 
 @Service
@@ -132,20 +134,23 @@ public class SmartMemberService {
 	}
 	
 	public void updateMobileCodeSend(String mobileNumber,int code){
-		String sql = " update smart_mobile_code_send set last_send_time = NOW() ,code = ?,remain_time = remain_time -1 where mobile = ? ";
-		jdbcTemplate.update(sql, code,mobileNumber);
+		String sql = " update smart_mobile_code_send set last_send_time = ? ,code = ?,remain_time = remain_time -1 where mobile = ? ";
+		String now = DateHelper.paraseDateToString(new Date(), "yyyy-MM-dd HH:mm:ss");
+		jdbcTemplate.update(sql,now, code,mobileNumber);
 		insertIntoMobileCodeSendHis(mobileNumber, code);
 	}
 	
 	public void insertMobileCodeSend(String mobileNumber,int code,int remainTime){
-		String sql = " insert into smart_mobile_code_send(mobile,last_send_time,code,remain_time)values(?,NOW(),?,?) ";
-		jdbcTemplate.update(sql, mobileNumber,code,remainTime);
+		String sql = " insert into smart_mobile_code_send(mobile,last_send_time,code,remain_time)values(?,?,?,?) ";
+		String now = DateHelper.paraseDateToString(new Date(), "yyyy-MM-dd HH:mm:ss");
+		jdbcTemplate.update(sql, mobileNumber,now,code,remainTime);
 		insertIntoMobileCodeSendHis(mobileNumber, code);
 	}
 	
 	public void insertIntoMobileCodeSendHis(String mobileNumber,int code ){
-		String sql = " insert into smart_mobile_code_send_history(mobile,send_time,send_code)values(?,NOW(),?) ";
-		jdbcTemplate.update(sql, mobileNumber,code);
+		String sql = " insert into smart_mobile_code_send_history(mobile,send_time,send_code)values(?,?,?) ";
+		String now = DateHelper.paraseDateToString(new Date(), "yyyy-MM-dd HH:mm:ss");
+		jdbcTemplate.update(sql, mobileNumber,now,code);
 	}
 	
 	
