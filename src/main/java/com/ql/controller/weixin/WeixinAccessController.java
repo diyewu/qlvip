@@ -124,7 +124,7 @@ public class WeixinAccessController extends BaseController{
 				respMap = WeixinHelper.getWebAuthOpenIdAndAccessToken(customConfig.getAppid(), customConfig.getSecret(), authCode);
 				openId = respMap.get(WeixinConstants.WEIXIN_OPEN_ID);
 			}
-			if(StringUtils.isBlank(openId) && StringUtils.isBlank(authCode)){
+			if(StringUtils.isBlank(openId)){
 				openId = (String)session.getAttribute(WeixinConstants.SESSION_WEIXIN_OPEN_ID);
 			}
 			System.out.println("openId="+openId);
