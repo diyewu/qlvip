@@ -1,8 +1,9 @@
 package com.ql.task;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import javax.mail.MessagingException;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,15 +11,21 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.ql.controller.weixin.WeiXinSendTemplateThread;
+import com.ql.entity.CustomConfig;
 import com.ql.service.OrderService;
+import com.ql.utils.MailSam;
 
 @Component
 public class OrderScanTask {
 	
 	@Autowired
 	private OrderService orderService;
+	@Autowired  
+    private CustomConfig customConfig; 
 	
 	private static String orderNo = "";
+	
+	
 	/**
 	 * 每分钟的30秒执行一次
 	 * https://www.cnblogs.com/softidea/p/5833248.html
@@ -44,6 +51,11 @@ public class OrderScanTask {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			try {
+				MailSam.send(customConfig.getSmtp(), customConfig.getPort(), customConfig.getUser(), customConfig.getPwd(), "194973883@qq.com", " 系统扫描任务", "任务执行出错："+e.getMessage());
+			} catch (MessagingException e1) {
+				e1.printStackTrace();
+			}
 		}
 	}
 }
