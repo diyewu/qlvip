@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta content="telephone=no, address=no" name="format-detection">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<link href="css/main.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/swipe.js"></script>
+<script type="text/javascript" >
+function showEwm()
+{
+	$("#ewm").show();
+}
+function hideEwm(){
+	$("#ewm").hide();
+}
+</script>
+</head>
+
+<body class="gbuy_grid" style="background:#fff;">
+
+<!--top nav start-->
+ <header id="top_nav">
+   <label>
+     <span class="left" onClick="javascript :history.back(-1);">返回</span><span class="right">添加新的会员卡<!--em>＋</em--></span>
+   </label>
+ </header>
+<!--top nav end-->
+<div class="carduser">
+   <div class="cardadd">
+        <!--b>［添加新的会员卡］</b-->
+        <label><input type="text"  placeholder="请输入会员卡ID"/></label>
+        <label><input type="text"  placeholder="请输入会员卡密码"/></label>
+        <label><input type="text"  placeholder="请输入需要绑定的手机号码"/></label>
+        <span>确认绑定并添加为新的会员卡</span>
+        <b>［使用其它途径添加］</b>
+        <a class="newadd" href="">＋使用扫一扫，添加会员卡</a>
+        
+        
+   </div>
+</div>
+            
+            <!--条形码／二维码 开始-->
+             <div class="card_ewm" id="ewm" style="display:none;">
+                <b>请给收银员扫一扫下面的条形码或二维码，以完成会员卡功能的相关操作。</b>
+                <a onClick="hideEwm()" class="cewmbody">
+                   <span class="top"><img src="images/txm.jpg"></span>
+                   <div class="cewmm"></div>
+                   <span class="bottom"><img src="images/ewm.png"></span>
+                </a>
+             </div>
+            <!--条形码／二维码 结束-->
+</body>
+</html>

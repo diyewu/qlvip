@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta content="telephone=no, address=no" name="format-detection">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<link href="css/main.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/swipe.js"></script>
+<script>
+    $(function(){
+        window.swiper = new Swipe(document.getElementById('list_uls'), {
+            speed:500,
+            // auto:3000,
+            callback: function(){
+                $("#nav_list_uls li").removeClass("on").eq(this.index).addClass("on");
+            }
+        });
+    })
+</script>
+<script type="text/javascript" >
+function showEwm()
+{
+	$("#ewm").show();
+}
+function hideEwm(){
+	$("#ewm").hide();
+}
+</script>
+</head>
+
+<body class="gbuy_grid" oncontextmenu="self.event.returnValue=false" onselectstart="return false">
+
+<!--top nav start-->
+ <header id="top_nav">
+   <label>
+     <span class="left" onClick="window.location='index.html'">返回</span><span class="right" onClick="window.location='cardadd.html'">新增会员卡／充值卡<em class="add"></em></span>
+   </label>
+ </header>
+<!--top nav end-->
+
+<div style="margin-top:45px;">
+  <div id="container" class="container animate">
+    <div class="body ofh">
+      <section>
+        <ul id="nav_list_uls" class="nav_list_uls box">
+          <li class="on">&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+        </ul>
+      </section>
+      <section id="list_uls" class="list_section box_swipe" style="visibility: visible;">
+        <ul class="gbuy_list_grid" style="list-style: none; width: 3200px; transition: 0ms; -webkit-transition: 0ms; -webkit-transform: translate3d(0px, 0, 0);">
+        
+          <!--No.1    -->
+          <li style="width: 640px; display: table-cell; vertical-align: top;">
+            <div class="wps">
+              <figure> <span class="span_img"> <img src="images/card_bg_01.png"> 
+              <div class="ar_btn_left02"></div><div class="logo_u01"></div>
+              <div class="price">
+                 <h3>三生三味／果果商城 联名会员卡</h3>
+              </div>
+              </span>
+              </figure> 
+            </div>
+            <div class="card_cm">
+              <span class="card_mod" onClick="window.location='carduser.html'"><i></i><img src="images/card_mod.png"></span>
+              <ul>
+                 <a href="carduser.html"><li><em>¥</em>会员储值卡余额 ¥200.00<i></i></li></a>
+                 <li><em>惠</em>会员日特价优惠活动进行中<i></i></li>
+              </ul>
+            </div>
+            </li>
+            
+            <!--No.2    -->
+          <li style="width: 640px; display: table-cell; vertical-align: top;">
+            <div class="wps">
+              <figure> <span class="span_img"> <img src="images/card_bg_02.png"> 
+              <div class="ar_btn_left02"></div>
+              </span>
+              </figure> 
+            </div>
+            <div class="card_cm">
+              <span class="card_mod" onClick="window.location='carduser02.html'"><i></i><img src="images/card_mod.png"></span>
+              <ul>
+                 <a href="carduser.html"><li><em>¥</em>会员储值卡余额 ¥200.00<i></i></li></a>
+                 <li><em>惠</em>会员日特价优惠活动进行中<i></i></li>
+              </ul>
+            </div>
+            </li>
+            
+            <!--No.3    -->
+          <li style="width: 640px; display: table-cell; vertical-align: top;">
+            <div class="wps">
+              <figure> <span class="span_img"> <img src="images/card_bg_03.png"> 
+              <div class="ar_btn_left02"></div><div class="logo_u02"></div>
+              <div class="price">
+                 <h3>完美生活联名储值卡<span><!--s>￥1.00</s--></span></h3>
+              </div>
+              </span>
+              </figure> 
+            </div>
+            <div class="card_cm">
+              <span class="card_mod" onClick="window.location='carduser03.html'"><i></i><img src="images/card_mod.png"></span>
+              <ul>
+                 <a href="carduser.html"><li><em>¥</em>会员储值卡余额 ¥200.00<i></i></li></a>
+                 <li><em>惠</em>会员日特价优惠活动进行中<i></i></li>
+              </ul>
+            </div>
+            </li>
+            
+            <!--No.4    -->
+          <li style="width: 640px; display: table-cell; vertical-align: top;">
+            <div class="wps">
+              <figure> <span class="span_img"> <img src="images/card_bg_04.png"> 
+              <div class="ar_btn_left02"></div><div class="logo_u01"></div>
+              <div class="price">
+                 <h3>果果商城完美生活会员卡<span><!--s>￥1.00</s--></span></h3>
+              </div>
+              </span>
+              </figure> 
+            </div>
+            <div class="card_cm">
+              <span class="card_mod" onClick="window.location='carduser04.html'"><i></i><img src="images/card_mod.png"></span>
+              <ul>
+                 <a href="carduser.html"><li><em>¥</em>会员储值卡余额 ¥200.00<i></i></li></a>
+                 <li><em>惠</em>会员日特价优惠活动进行中<i></i></li>
+              </ul>
+            </div>
+            </li>
+            
+            <!--No.5    -->
+          <li style="width: 640px; display: table-cell; vertical-align: top;">
+            <div class="wps">
+              <figure> <span class="span_img"> <img src="images/card_bg_06.png"> 
+              <div class="ar_btn_left02"></div><div class="logo_u02"></div>
+              <div class="price">
+                 <h3>果果商城完美生活会员卡<span><!--s>￥1.00</s--></span></h3>
+              </div>
+              </span>
+              </figure> 
+            </div>
+            <div class="card_cm">
+              <span class="card_mod" onClick="window.location='carduser05.html'"><i></i><img src="images/card_mod.png"></span>
+              <ul>
+                 <a href="carduser.html"><li><em>¥</em>会员储值卡余额 ¥200.00<i></i></li></a>
+                 <li><em>惠</em>会员日特价优惠活动进行中<i></i></li>
+              </ul>
+            </div>
+            </li>
+        </ul>
+      </section>
+    </div>
+    
+  </div>
+</div>
+
+</body>
+</html>

@@ -50,10 +50,10 @@ public class OrderScanTask {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			try {
-				MailSam.send(customConfig.getSmtp(), customConfig.getPort(), customConfig.getUser(), customConfig.getPwd(), "194973883@qq.com", " 系统扫描任务", "任务执行出错："+e.getMessage());
-			} catch (MessagingException e1) {
+//				MailSam.send(customConfig.getSmtp(), customConfig.getPort(), customConfig.getUser(), customConfig.getPwd(), "194973883@qq.com", " 系统扫描任务", "任务执行出错："+e.getMessage());
+			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 		}

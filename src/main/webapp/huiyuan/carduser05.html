@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta content="telephone=no, address=no" name="format-detection">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<link href="css/main.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/swipe.js"></script>
+<script type="text/javascript" >
+function showEwm()
+{
+	$("#ewm").show();
+}
+function hideEwm(){
+	$("#ewm").hide();
+}
+</script>
+</head>
+
+<body class="gbuy_grid">
+
+<!--top nav start-->
+ <header id="top_nav">
+   <label>
+     <span class="left" onClick="javascript :history.back(-1);">返回</span><span class="right">会员卡详情<!--em>¥</em--></span>
+   </label>
+ </header>
+<!--top nav end-->
+<div class="carduser">
+   <div class="face_w">
+      <em></em><i onclick="showEwm()"></i>
+      <b>果果商城会员储值卡</b>
+      <label>编号：Nk-0068600068</label>
+   </div>
+   <div class="card_w">
+      <img src="images/card_bg_0601.png"> 
+      <span>余额：¥260.00</span>
+   </div>
+   <div class="text_w">
+      <b>［用卡须知］</b>
+      <ul>
+         <li>本卡仅限在果果商城网络商城／实体店等智能平台上使用。</li>
+         <li>本卡为实名制储值卡，可以通过自助终端完成在线充值、消费、查询等功能。</li>
+         <li>使用本卡时，请直接扫描条形码或二维码即可。</li>
+         <li>本卡的有效期及其他详细使用规则详见商城通告。</li>
+         <li>本卡的最终使用解释权归果果商城所有。</li>
+      </ul>
+   </div>
+   <div class="pay_w">
+       <span class="red">现在去充值<i></i></span>
+   </div>
+</div>
+            
+            <!--条形码／二维码 开始-->
+             <div class="card_ewm" id="ewm" style="display:none;">
+                <b>请给收银员扫一扫下面的条形码或二维码，以完成会员卡功能的相关操作。</b>
+                <a onClick="hideEwm()" class="cewmbody">
+                   <span class="top"><img src="images/txm.jpg"></span>
+                   <div class="cewmm"></div>
+                   <span class="bottom"><img src="images/ewm.png"></span>
+                </a>
+             </div>
+            <!--条形码／二维码 结束-->
+</body>
+</html>
