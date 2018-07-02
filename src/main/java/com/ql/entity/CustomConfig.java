@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component  
-@ConfigurationProperties(prefix="custom") //接收application.yml中的myProps下面的属性  
+@ConfigurationProperties(prefix="custom") //接收application.yml中的custom下面的属性  
 public class CustomConfig {  
     private String clientFileUpladPath;
     private String smtp;
@@ -13,9 +13,15 @@ public class CustomConfig {
     private String pwd;
     private String appid;
     private String secret;
-    private String baiduapikey;
+    private String baidumapapikey;
     private String weixintoken;
     private String sendtimes;
+    private String aeskeycode;
+    private String mchid;
+    private String notifyurl;
+    private String weixinapikey;
+    private boolean sandbox;
+    private String certpath;
 
 	public String getClientFileUpladPath() {
 		return clientFileUpladPath;
@@ -74,12 +80,13 @@ public class CustomConfig {
 		this.secret = secret;
 	}
 
-	public String getBaiduapikey() {
-		return baiduapikey;
+
+	public String getBaidumapapikey() {
+		return baidumapapikey;
 	}
 
-	public void setBaiduapikey(String baiduapikey) {
-		this.baiduapikey = baiduapikey;
+	public void setBaidumapapikey(String baidumapapikey) {
+		this.baidumapapikey = baidumapapikey;
 	}
 
 	public String getWeixintoken() {
@@ -96,7 +103,55 @@ public class CustomConfig {
 
 	public void setSendtimes(String sendtimes) {
 		this.sendtimes = sendtimes;
-	} 
-	
+	}
+
+	public String getAeskeycode() {
+		return aeskeycode;
+	}
+
+	public void setAeskeycode(String aeskeycode) {
+		this.aeskeycode = aeskeycode;
+	}
+
+	public String getMchid() {
+		return mchid;
+	}
+
+	public void setMchid(String mchid) {
+		this.mchid = mchid;
+	}
+
+	public String getNotifyurl() {
+		return notifyurl;
+	}
+
+	public void setNotifyurl(String notifyurl) {
+		this.notifyurl = notifyurl;
+	}
+
+	public String getWeixinapikey() {
+		return weixinapikey;
+	}
+
+	public void setWeixinapikey(String weixinapikey) {
+		this.weixinapikey = weixinapikey;
+	}
+
+	public boolean isSandbox() {
+		return sandbox;
+	}
+
+	public void setSandbox(boolean sandbox) {
+		this.sandbox = sandbox;
+	}
+
+	public String getCertpath() {
+		return certpath;
+	}
+
+	public void setCertpath(String certpath) {
+		this.certpath = certpath;
+	}
+
     
 }  

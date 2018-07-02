@@ -28,9 +28,8 @@ import com.ql.controller.BaseController;
 import com.ql.entity.CustomConfig;
 import com.ql.entity.SmartMember;
 import com.ql.model.json.JsonModel;
-import com.ql.service.OrderService;
 import com.ql.service.SmartMemberService;
-import com.ql.utils.SMSUtil;
+import com.ql.utils.DateHelper;
 import com.ql.utils.SignUtil;
 
 import io.swagger.annotations.ApiOperation;
@@ -41,12 +40,8 @@ import io.swagger.annotations.ApiParam;
 public class WeixinAccessController extends BaseController{
 	@Autowired
 	private SmartMemberService smartMemberService;
-	@Autowired
-	private OrderService orderService;
 	@Autowired  
     private CustomConfig customConfig; 
-	
-	private final String smsTemplate = "【芊乐零食屋】尊敬的用户：您的验证码为：$code（60分钟内有效），为了保证您的账户安全，请勿向任何人提供此验证码。";
 	
     private static final Logger LOGGER = LoggerFactory.getLogger(WeixinAccessController.class);
 	/**
@@ -86,10 +81,8 @@ public class WeixinAccessController extends BaseController{
     @RequestMapping(value="access",method = RequestMethod.POST)
     @ResponseBody
     public void weixinCommunicate(HttpServletRequest request, HttpServletResponse response) throws IOException{
-    	System.out.println("__________________________come in____");
     	try {
     		String resp = WeixinHelper.processRequest(request);
-    		System.out.println("___________________________resp="+resp);
     		this.printData(response, resp);
     	} catch (Exception e) {
     		e.printStackTrace();
@@ -107,9 +100,9 @@ public class WeixinAccessController extends BaseController{
      * @param authCode
      */
     @ApiOperation(value = "根据微信网页授权code获取openId", notes = "根据微信网页授权code获取openId", httpMethod = "POST")
-    @RequestMapping(value="getMemberInfoByCode",method = RequestMethod.POST)
+    @RequestMapping(value="getCarParkInfoByCode",method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel getMemberInfoByCode(@ApiParam(name = "authCode", value = "用户同意授权，获取code", required = true) @RequestParam("authCode") String authCode
+    public JsonModel getCarParkInfoByCode(@ApiParam(name = "authCode", value = "用户同意授权，获取code", required = true) @RequestParam("authCode") String authCode
     		){
     	System.out.println("authCode="+authCode);
 //    	return null;
@@ -135,9 +128,30 @@ public class WeixinAccessController extends BaseController{
 			}
 			if(code == 0){
 				// 得到openid走业务逻辑，如果数据库中存在则查询数据，如果没有绑定手机号
-				List<Map<String, Object>> list = orderService.getMemberInfoByOpenId(openId);
-				if(list != null && list.size()>0){//存在,则停留在这里
+				List<Map<String, Object>> list = smartMemberService.checkMemberByOpenId(openId);
+				if(list != null && list.size()>0){//存在,查询当前停车信息，展示出来
 					map.put("state", "1");
+					String memberId = (String)list.get(0).get("id");
+					String mobile = (String)list.get(0).get("mobile");
+					session.setAttribute(WeixinConstants.SESSION_MEMBER_ID, memberId);
+					session.setAttribute(WeixinConstants.SESSION_WEIXIN_USER_MOBILE, mobile);
+					List<Map<String, Object>> carParkList = smartMemberService.getCarParkStateByMemId(memberId);
+					List<Map<String, Object>> respList = new ArrayList<Map<String,Object>>();
+					if(carParkList != null && carParkList.size()>0){
+						Map<String, Object> tmap = new HashMap<String, Object>();
+						for(int i=0;i<carParkList.size();i++){
+							tmap = new HashMap<String, Object>();
+							tmap = carParkList.get(i);
+							String begin_time = (String)tmap.get("begin_time");
+							tmap.put("diff_time", "0小时0分钟");
+							if(StringUtils.isNotBlank(begin_time)){
+								String DateDiff = DateHelper.getDateDiffengt(begin_time);
+								tmap.put("diff_time", DateDiff);
+							}
+							respList.add(tmap);
+						}
+					}
+					map.put("carstate", respList);
 				}else{//不存在，跳转到手机注册页面
 					map.put("state", "0");
 				}
@@ -174,7 +188,6 @@ public class WeixinAccessController extends BaseController{
 			//校验手机号码
 			boolean isMobile = isMobile(mobileNumber);
 			int mobileCode = (int) ((Math.random() * 9 + 1) * 100000);
-			String content= smsTemplate.replace("$code", mobileCode+"");
 			if (!isMobile) {
 				code = ServerResult.RESULT_MOBILE_VALIDATE_ERROR;
 			}
@@ -183,19 +196,6 @@ public class WeixinAccessController extends BaseController{
 				String openId = (String)session.getAttribute(WeixinConstants.SESSION_WEIXIN_OPEN_ID);
 				if(StringUtils.isBlank(openId)){
 					code = ServerResult.RESULT_AUTH_VALIDATE_ERROR;
-				}
-			}
-			
-			//校验该手机号码是否已经是线下会员
-			if (code == 0) {
-				if(!orderService.checkMobileIsOffline(mobileNumber)){
-					code = ServerResult.RESULT_MEMBER_CHECK_ERROR;
-				}
-			}
-			//检查是否已经绑定，已经绑定则无需重新绑定
-			if (code == 0) {
-				if(orderService.checkBind(mobileNumber)){
-					code = ServerResult.RESULT_MEMBER_REPEAT_BIND_ERROR;
 				}
 			}
 			
@@ -215,14 +215,14 @@ public class WeixinAccessController extends BaseController{
 								long second = diff / 1000;
 								if (second > 120) {//2分钟之后才能继续发送验证码
 									//TODO  发送验证码
+									String content="尊敬的用户：<br/>您的验证码为："+mobileCode+"（60分钟内有效，区分大小写），为了保证您的账户安全，请勿向任何人提供此验证码。";
 									try {
 										//插入数据库
 										smartMemberService.updateMobileCodeSend(mobileNumber, mobileCode);
-										SMSUtil.sendSMS(mobileNumber, content);
+//										MailSam.send(customConfig.getSmtp(), customConfig.getPort(), customConfig.getUser(), customConfig.getPwd(), "930725713@qq.com", "测试手机验证码", content);
+										map.put("code", mobileCode);
 										session.setAttribute(WeixinConstants.SESSION_WEIXIN_USER_MOBILE, mobileNumber);
-										System.out.println("发送成功----"+mobileNumber);
 										session.setAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE, mobileCode);
-										System.out.println("发验证码----"+mobileCode);
 									} catch (Exception e) {
 										code = ServerResult.RESULT_SERVER_ERROR;
 										msg = e.getMessage();
@@ -240,12 +240,10 @@ public class WeixinAccessController extends BaseController{
 					}
 				} else {
 					//TODO  第一次发送验证码，则直接发送，并存储数据库,存储次数为9
+					String content="尊敬的用户：<br/>您的验证码为："+mobileCode+"（60分钟内有效，区分大小写），为了保证您的账户安全，请勿向任何人提供此验证码。";
 					try {
-						SMSUtil.sendSMS(mobileNumber, content);
-						session.setAttribute(WeixinConstants.SESSION_WEIXIN_USER_MOBILE, mobileNumber);
-						System.out.println("发送成功--11--"+mobileNumber);
-						session.setAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE, mobileCode);
-						System.out.println("发验证码--11--"+mobileCode);
+//						MailSam.send(customConfig.getSmtp(), customConfig.getPort(), customConfig.getUser(), customConfig.getPwd(), "930725713@qq.com", "测试手机验证码", content);
+						map.put("code", mobileCode);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -277,11 +275,8 @@ public class WeixinAccessController extends BaseController{
 			String sessionValidateCode = session.getAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE)+"";
 			session.setAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE, "");
 			String memberId = "";
-			System.out.println("openId="+openId);
-			System.out.println("mobile="+mobile);
-			System.out.println("sessionValidateCode="+sessionValidateCode);
 			if (StringUtils.isBlank(sessionValidateCode)) {
-				code = ServerResult.RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR;
+				code = ServerResult.RESULT_MOBILE_CODE_VALIDATE_ERROR;
 			}
 			if (code == 0) {
 				if (StringUtils.isNotBlank(mobile)) {
@@ -295,14 +290,19 @@ public class WeixinAccessController extends BaseController{
 			//手机验证码验证成功之后，插入会员信息
 			if (code == 0) {
 				//根据openid获取会员信息
-				List<Map<String, Object>> list = orderService.getMemberInfoByOpenId(openId);
+				List<Map<String, Object>> list = smartMemberService.getMemberInfoByOpenId(openId);
 				if(list != null && list.size()>0){
 					memberId = (String)list.get(0).get("id");
 				}
+				SmartMember smartMember = new SmartMember();
 				if(StringUtils.isNotBlank(memberId)){//验证手机验证码，如果是已存在的会员，则无需更新
+//					smartMember.setId(memberId);
+//					SESSION_MEMBER_ID
 					session.setAttribute(WeixinConstants.SESSION_MEMBER_ID, memberId);
-				}else{//插入会员
-					orderService.insertOpenid(openId, mobile);
+				}else{
+					smartMember.setMobile(mobile);
+					smartMember.setOpenId(openId);
+					smartMemberService.updateMember(smartMember);
 				}
 			} 
 		} catch (Exception e) {

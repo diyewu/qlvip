@@ -21,18 +21,26 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.springframework.stereotype.Component;
 
 import com.sun.xml.internal.bind.marshaller.CharacterEscapeHandler;
 import com.ql.controller.weixin.message.response.TextMessage;
 import com.ql.utils.AgingCache;
 import com.ql.utils.HttpsUtil;
 
+@Component
 public class WeixinHelper {
 
 	public static void main(String[] args) {
 		// System.out.println(getAccessToken("wxc03cad31c1ceb8f3",
 		// "d4624c36b6795d1d99dcf0547af5443d"));
-		System.out.println(getAccessToken("", ""));
+		TextMessage textMessage = new TextMessage();
+		textMessage.setMsgType(WeixinConstants.MESSAGE_TEXT);
+		textMessage.setToUserName("1111");
+		textMessage.setFromUserName("2222222");
+		textMessage.setCreateTime(System.currentTimeMillis() + "");
+		textMessage.setContent("3asdasdasdsa");
+		System.out.println(convertToXml(textMessage));
 	}
 
 	/**
@@ -43,7 +51,7 @@ public class WeixinHelper {
 	 */
 	public static String getAccessToken(String appId, String appSecret) {
 		ObjectMapper mapper = new ObjectMapper();
-		String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx4307e5a5bb1ced6c&secret=cda03704e18865361c18583bfef73358";
+		String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+appId+"&secret="+appSecret+"";
 		// String url = "https://api.weixin.qq.com/cgi-bin/token?";
 		String accessToken = "";
 		try {
@@ -56,6 +64,7 @@ public class WeixinHelper {
 				// params.put("secret", appSecret);
 				// params.put("grant_type", "client_credential");
 				String resp = HttpsUtil.doPostSSL(url, params);
+				System.out.println("获取token="+resp);
 				Map<String, Object> map = mapper.readValue(resp, Map.class);
 				if (map.containsKey("access_token")) {
 					accessToken = (String) map.get("access_token");
@@ -166,7 +175,7 @@ public class WeixinHelper {
 			String Event = map.get("Event");
 			String resp = "";
 			if("subscribe".equals(Event)){//subscribe(订阅)
-				resp = "欢迎光临芊乐零食屋，祝您购物愉快。";
+				resp = "如果停留在首页等待，则表示当前为调试时间段，如需测试完整功能，请联系管理员：18936483081 进行开放处理！";
 			}else if(WeixinConstants.MESSAGE_EVENT_CLICK.equals(Event)){
 				String EventKey = map.get("EventKey");
 				resp = MessageHandler.processMsg(EventKey);

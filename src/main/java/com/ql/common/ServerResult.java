@@ -24,8 +24,11 @@ import org.apache.commons.lang.StringUtils;
     50012:名下登记车辆总数超过最大数量
     50013:车辆信息校验错误
     50014:车辆权限信息校验失败
+    50015:尚未查询到符合条件的订单，请确认已经发出停车申请
+    50016:会员信息校验失败
+    50017:参数校验失败
+    50018:订单编号无效
     
-    60001:您尚未成为本店会员
  * @author 吴迪叶
  *
  */
@@ -79,16 +82,30 @@ public class ServerResult {
 	
 	public final static int RESULT_CAR_AUTH_VALIDATE_ERROR = 50014;
 	public final static String RESULT_CAR_AUTH_VALIDATE_ERROR_MSG = "车辆权限信息校验失败";
+
+	public final static int RESULT_ORDER_STATE_ERROR = 50015;
+	public final static String RESULT_ORDER_STATE_ERROR_MSG = "尚未查询到符合条件的订单";
 	
-	public final static int RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR = 50015;
-	public final static String RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR_MSG = "手机验证码获取失败";
+	public final static int RESULT_MEMBER_AUTH_ERROR = 50016;
+	public final static String RESULT_MEMBER_AUTH_ERROR_MSG = "会员信息校验失败";
 	
-	public final static int RESULT_MEMBER_CHECK_ERROR = 60001;
-	public final static String RESULT_MEMBER_CHECK_ERROR_MSG = "您尚未成为本店会员";
+	public final static int RESULT_PARAM_CHECK_ERROR = 50017;
+	public final static String RESULT_PARAM_CHECK_ERROR_MSG = "参数校验失败";
 	
-	public final static int RESULT_MEMBER_REPEAT_BIND_ERROR = 60002;
-	public final static String RESULT_MEMBER_REPEAT_BIND_ERROR_MSG = "您已经绑定过会员，无需重新绑定";
+	public final static int RESULT_ORDER_ID_ERROR = 50018;
+	public final static String RESULT_ORDER_ID_ERROR_MSG = "订单编号无效";
 	
+	public final static int RESULT_GET_PREPAY_ID_ERROR = 50019;
+	public final static String RESULT_GET_PREPAY_ID_ERROR_MSG = "预支付交易会话标识失败";
+	
+	public final static int RESULT_ORDER_FEE_ERROR = 50020;
+	public final static String RESULT_ORDER_FEE_ERROR_MSG = "订单费用异常";
+	
+	public final static int RESULT_REFUND_ERROR = 50021;
+	public final static String RESULT_REFUND_ERROR_MSG = "退款失败";
+	
+	public final static int RESULT_CAR_EXIST_PARKING_ORDER_ERROR = 50022;
+	public final static String RESULT_CAR_EXIST_PARKING_ORDER_ERROR_MSG = "当前车辆存在未支付订单，请先支付未完结订单";
 	
 	public static Map<Integer,String> ServerResultMap = new HashMap<Integer, String>();
 	static{
@@ -108,16 +125,21 @@ public class ServerResult {
 		ServerResultMap.put(RESULT_MAX_CAR_ERROR, RESULT_MAX_CAR_ERROR_MSG);
 		ServerResultMap.put(RESULT_CAR_VALIDATE_ERROR, RESULT_CAR_VALIDATE_ERROR_MSG);
 		ServerResultMap.put(RESULT_CAR_AUTH_VALIDATE_ERROR, RESULT_CAR_AUTH_VALIDATE_ERROR_MSG);
-		ServerResultMap.put(RESULT_MEMBER_CHECK_ERROR, RESULT_MEMBER_CHECK_ERROR_MSG);
-		ServerResultMap.put(RESULT_MEMBER_REPEAT_BIND_ERROR, RESULT_MEMBER_REPEAT_BIND_ERROR_MSG);
-		ServerResultMap.put(RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR, RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR_MSG);
+		ServerResultMap.put(RESULT_ORDER_STATE_ERROR, RESULT_ORDER_STATE_ERROR_MSG);
+		ServerResultMap.put(RESULT_MEMBER_AUTH_ERROR, RESULT_MEMBER_AUTH_ERROR_MSG);
+		ServerResultMap.put(RESULT_PARAM_CHECK_ERROR, RESULT_PARAM_CHECK_ERROR_MSG);
+		ServerResultMap.put(RESULT_ORDER_ID_ERROR, RESULT_ORDER_ID_ERROR_MSG);
+		ServerResultMap.put(RESULT_GET_PREPAY_ID_ERROR, RESULT_GET_PREPAY_ID_ERROR_MSG);
+		ServerResultMap.put(RESULT_ORDER_FEE_ERROR, RESULT_ORDER_FEE_ERROR_MSG);
+		ServerResultMap.put(RESULT_REFUND_ERROR, RESULT_REFUND_ERROR_MSG);
+		ServerResultMap.put(RESULT_CAR_EXIST_PARKING_ORDER_ERROR, RESULT_CAR_EXIST_PARKING_ORDER_ERROR_MSG);
 	}
-	
 	
 	public static String getCodeMsg(int code,String defaultValue){
 		String msg = null;
-		msg = ServerResultMap.get(code);
-		if(StringUtils.isBlank(msg)){
+		if(StringUtils.isBlank(defaultValue)){
+			msg = ServerResultMap.get(code);;
+		}else{
 			msg = defaultValue;
 		}
 		return msg;

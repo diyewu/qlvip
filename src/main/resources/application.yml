@@ -8,8 +8,7 @@ server:
 spring:
     datasource:
         name: test
-#        url: jdbc:mysql://19w235891x.iask.in:48365/scpos2
-        url: jdbc:mysql://localhost:3306/qlvip
+        url: jdbc:mysql://118.24.85.246:3306/qlvip
         username: root
         password: NoHsPlT03DG1bkBe
         # 使用druid数据源
@@ -72,16 +71,25 @@ logging:
 #custom settings
 custom:
      clientFileUpladPath: /opt/gis/temp/
-#     clientFileUpladPath: E:\gistools\img/
-#     clientFileUpladPath: /home/gis/temp
 #     clientFileUpladPath: F:\tempfilepath/
-#     clientFileUpladPath: /Users/calvin/Work/Tomcat/temp/
+#     clientFileUpladPath: /home/gis/temp
      smtp: smtp.qq.com
      port: 587
      user: 194973883@qq.com
      pwd: bctxjkzoywyqbied
      appid: wx4307e5a5bb1ced6c
      secret: cda03704e18865361c18583bfef73358
-     baiduapikey: 7gsG6xxeUEbtVCvVIqZ6aZY9Bage25Zm
+     baidumapapikey: plEzfOG4jm58EGxEsHw4kCPoG3UjOcNv
      weixintoken: N6BflxST3dsDdRNr
      sendtimes: 10
+     #正式环境key
+     aeskeycode: sJTfkjIzdiBHndKASC8V3fFbqm1o7LDp
+     #sandbox环境key
+#     aeskeycode: e74b42e06362960d306095802f464c23
+     mchid: 1505894581
+     notifyurl: https://zhonglestudio.cn/smartparking/wepay/accessWePayNotify/
+     weixinapikey: sJTfkjIzdiBHndKASC8V3fFbqm1o7LDp
+     #是否 沙盒环境
+     sandbox: false 
+     #证书路径
+     certpath: /opt/apache-tomcat-8.5.28/weixinpaycert/apiclient_cert.p12

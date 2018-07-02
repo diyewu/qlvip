@@ -15,6 +15,12 @@ public class SmartOrder {
 	private String payWayId;
 	private String recordInId;
 	private String recordOutId;
+	private String orderRefundId;//退款订单编号
+	private String transactionId;//微信订单号-微信生成的订单号，在支付通知中有返回
+	private String totalFee;//应收总金额
+	private String cashFee;//实收金额
+	private String couponFee;//优惠券金额
+	
 	public String getId() {
 		return id;
 	}
@@ -100,5 +106,37 @@ public class SmartOrder {
 	public void setRecordOutId(String recordOutId) {
 		this.recordOutId = recordOutId;
 	}
+	public String getOrderRefundId() {
+		return orderRefundId;
+	}
+	public void setOrderRefundId(String orderRefundId) {
+		this.orderRefundId = orderRefundId;
+	}
+	public String getTransactionId() {
+		return transactionId;
+	}
+	public void setTransactionId(String transactionId) {
+		this.transactionId = transactionId;
+	}
+	public String getTotalFee() {
+		return totalFee;
+	}
+	public void setTotalFee(String totalFee) {
+		this.totalFee = totalFee;
+	}
+	public String getCashFee() {
+		return cashFee;
+	}
+	public void setCashFee(String cashFee) {
+		this.cashFee = cashFee;
+	}
+	public String getCouponFee() {
+		return couponFee;
+	}
+	public void setCouponFee(String couponFee) {
+		this.couponFee = couponFee;
+	}
+	
+	
 	
 }

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.base.Joiner;
+import com.ql.common.SmartParkDictionary;
 import com.ql.entity.SmartMember;
 import com.ql.utils.DateHelper;
 import com.ql.utils.SortableUUID;
@@ -29,7 +30,7 @@ public class SmartMemberService {
 		return memberId;
 	}
 	
-	public List<Map<String, Object>> getMemberINfoByOpenId(String openId){
+	public List<Map<String, Object>> getMemberInfoByOpenId(String openId){
 		String sql = " select * from smart_member where open_id = ? ";
 		List<Map<String, Object>> list = jdbcTemplate.queryForList(sql, openId);
 		return list;
@@ -107,13 +108,14 @@ public class SmartMemberService {
 	
 	public List<Map<String, Object>> getCarParkStateByMemId(String memberId){
 		StringBuilder sb = new StringBuilder();
-		sb.append(" select sc.car_number,so.order_state_id,sp.park_name ,sod.state_name ,so.begin_time ");
+		sb.append(" select sc.car_number,so.order_state_id,sp.park_name ,sod.state_name ,so.begin_time ,max(sc.create_time)");
 		sb.append(" from smart_car sc  ");
-		sb.append(" left join smart_member sm on sc.car_owner_id = sm.id ");
-		sb.append(" left join smart_order so on so.car_id = sc.id and so.order_state_id in (1,2,3,4) ");
+		sb.append(" left join smart_member sm on sc.member_id= sm.id ");
+		sb.append(" left join smart_order so on so.car_id = sc.id ");
 		sb.append(" left join smart_order_state_dictionory sod on so.order_state_id = sod.id ");
 		sb.append(" left join smart_park sp on so.park_id = sp.id ");
 		sb.append(" where sm.id = ? ");
+		sb.append(" GROUP BY sc.id ");
 		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
 		if(StringUtils.isNotBlank(memberId)){
 			list = jdbcTemplate.queryForList(sb.toString(), memberId);
@@ -153,7 +155,6 @@ public class SmartMemberService {
 		jdbcTemplate.update(sql, mobileNumber,now,code);
 	}
 	
-	
 	/**
 	 * 初始化发送验证码次数
 	 * @param time
@@ -163,4 +164,16 @@ public class SmartMemberService {
 		jdbcTemplate.update(sql, time);
 		
 	}
+	
+	/**
+	 * 根据会员编号获取会员信息
+	 * @param memberId
+	 * @return
+	 */
+	public List<Map<String, Object>> getMemberInfoById(String memberId){
+		String sql = " select * from smart_member where id = ? ";
+		List<Map<String, Object>> list = jdbcTemplate.queryForList(sql, memberId);
+		return list;
+	}
+	
 }
