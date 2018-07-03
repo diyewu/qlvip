@@ -39,8 +39,13 @@ public class OrderService {
 		return orderNo;
 	}
 	
+	/**
+	 * 根据open_id获取会员信息
+	 * @param openId
+	 * @return
+	 */
 	public List<Map<String, Object>> getMemberInfoByOpenId(String openId){
-		String sql = " select * from weixin_account where open_id = ? ";
+		String sql = " SELECT * FROM weixin_account wa LEFT JOIN sc_member sm ON wa.mobile = sm.phone WHERE wa.open_id = ? ";
 		List<Map<String, Object>> list = jdbcTemplate.queryForList(sql,openId);
 		return list;
 	}
@@ -70,7 +75,5 @@ public class OrderService {
 		}
 		return false;
 	} 
-	
-	
 	
 }

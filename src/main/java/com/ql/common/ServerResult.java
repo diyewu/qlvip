@@ -107,6 +107,19 @@ public class ServerResult {
 	public final static int RESULT_CAR_EXIST_PARKING_ORDER_ERROR = 50022;
 	public final static String RESULT_CAR_EXIST_PARKING_ORDER_ERROR_MSG = "当前车辆存在未支付订单，请先支付未完结订单";
 	
+	
+	public final static int RESULT_MEMBER_CHECK_ERROR = 60001;
+	public final static String RESULT_MEMBER_CHECK_ERROR_MSG = "您尚未成为本店会员";
+	
+	public final static int RESULT_MEMBER_REPEAT_BIND_ERROR = 60002;
+	public final static String RESULT_MEMBER_REPEAT_BIND_ERROR_MSG = "您已经绑定过会员，无需重新绑定";
+	
+	public final static int RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR = 60003;
+	public final static String RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR_MSG = "手机验证码获取失败";
+	
+	public final static int RESULT_MEMBER_AUTH_VALIDATE_ERROR = 60004;
+	public final static String RESULT_MEMBER_AUTH_VALIDATE_ERROR_MSG = "会员信息尚未注册";
+	
 	public static Map<Integer,String> ServerResultMap = new HashMap<Integer, String>();
 	static{
 		ServerResultMap.put(RESULT_SUCCESS, "success");
@@ -133,6 +146,10 @@ public class ServerResult {
 		ServerResultMap.put(RESULT_ORDER_FEE_ERROR, RESULT_ORDER_FEE_ERROR_MSG);
 		ServerResultMap.put(RESULT_REFUND_ERROR, RESULT_REFUND_ERROR_MSG);
 		ServerResultMap.put(RESULT_CAR_EXIST_PARKING_ORDER_ERROR, RESULT_CAR_EXIST_PARKING_ORDER_ERROR_MSG);
+		ServerResultMap.put(RESULT_MEMBER_CHECK_ERROR, RESULT_MEMBER_CHECK_ERROR_MSG);
+		ServerResultMap.put(RESULT_MEMBER_REPEAT_BIND_ERROR, RESULT_MEMBER_REPEAT_BIND_ERROR_MSG);
+		ServerResultMap.put(RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR, RESULT_MOBILE_SESSION_CODE_VALIDATE_ERROR_MSG);
+		ServerResultMap.put(RESULT_MEMBER_AUTH_VALIDATE_ERROR, RESULT_MEMBER_AUTH_VALIDATE_ERROR_MSG);
 	}
 	
 	public static String getCodeMsg(int code,String defaultValue){

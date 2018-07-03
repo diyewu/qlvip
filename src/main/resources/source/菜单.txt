@@ -1,9 +1,12 @@
+
+#自定义创建菜单内容
+
 {
      "button":[
       {    
           "type":"view",
           "name":"绑定手机",
-          "url":"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4307e5a5bb1ced6c&redirect_uri=https%3A%2F%2Fzhonglestudio.cn%2Fqlvip%2Fweixin%2Findex.html&response_type=code&scope=snsapi_base&state=123#wechat_redirect"
+          "url":"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4307e5a5bb1ced6c&redirect_uri=https%3A%2F%2Fzhonglestudio.cn%2Fqlvip%2Fvip%2Findex.html&response_type=code&scope=snsapi_base&state=123#wechat_redirect"
       },
       {
  		  "type":"click",
@@ -11,3 +14,20 @@
           "key":"connectus"
       }]
  }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ #微信接入
+ https://zhonglestudio.cn/qlvip/wechat/access
+ N6BflxST3dsDdRNr
+ 
+ #公众号设置-功能设置-网页授权域名
+ zhonglestudio.cn/qlvip
+ 
+ 
+ #模拟微信登陆，带code
+ https://zhonglestudio.cn/qlvip/vip/index.html?code=011HsDaD1MV7q203m7bD12MuaD1HsDai

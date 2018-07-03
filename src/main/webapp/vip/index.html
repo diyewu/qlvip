@@ -3,8 +3,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0"/>
+
+<script type="text/javascript" src="js/jquery_1.9.min.js"></script>
+<script type="text/javascript" src="js/base.js" ></script>
+<link rel="stylesheet" href="css/wap_show_tools.css">
+<script type="text/javascript" src="js/wap_show_tools.js"  ></script>
+
 <link type="text/css" href="css/css.css" rel="stylesheet"/>
+<script type="text/javascript" src="js/index.js"></script>
+
+
 <title>我的会员卡</title>
+<style type="text/css">
+	.span_img{
+		display: block;
+		position:relative;
+	}
+	.price{
+		font-size: 14px;
+		color: #C72131;
+		padding: 10px 15px;
+		-webkit-box-sizing: border-box;
+		position: absolute;
+		bottom: 20px;
+		right: 10px;
+		/* [disabled]width: 100%; */	/*background:rgba(255, 255, 255, 0.5)!important;
+		filter:alpha(opacity=50);  
+	      -moz-opacity:0.5;  
+	      -khtml-opacity: 0.5;  
+	      opacity: 0.5;*/
+	}
+</style>
 </head>
 
 <body style="background:#f0f0f0;">
@@ -12,59 +41,78 @@
 	<div class="ding">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="xia"><img src="img/xia.png" width="25" height="25"/></td>
+            <td class="xia"></td>
             <td class="huiyuan">我的会员卡</td>
             <td class="home"><img src="img/home.png" width="25" height="25"/></td>
           </tr>
         </table>
     </div>
-    <div class="huiyuanka"><img src="img/t1.png" width="100%" height="auto"/></div>
+    <div class="huiyuanka">
+			<figure> 
+				<span class="span_img"> 
+					<img src="img/vz.jpg" width="100%" height="auto" />
+					<div class="price">
+						<h3>NO.<span id="cardNO">-</span></h3>
+					</div>
+				</span> 
+			</figure>
+	</div>
     <div class="chushi">使用时向服务员出示此卡</div>
-    <div class="kuang">
+<!--      <div class="kuang">-->
+    <div class="kuang_1">
     	<div class="yue">
-        	<div class="tubiao"><img src="img/b2.png" width="30" height="31"/></div>
-            <div class="yueyue">余额：0.00元</div>
+        	<div class="tubiao"><img src="img/yue.png" width="30" height="30"/></div>
+            <div class="yueyue">余额：<span id="memberyue"></span>元</div>
             <a href="yue.html"><div class="jiantou"><img src="img/jian.png" width="30" height="31"/></div></a>
         </div>
+        <!-- 
         <div style="width:100%; height:1px; background:#c2c2c2;"></div>
         <div class="jifen">
-        <div class="yue">
-        	<div class="tubiao"><img src="img/b1.png" width="30" height="31"/></div>
-            <div class="yueyue">积分：0分</div>
-            <a href="jifen.html"><div class="jiantou"><img src="img/jian.png" width="30" height="31"/></div></a>
+	        <div class="yue">
+	        	<div class="tubiao"><img src="img/jifen.png" width="30" height="30"/></div>
+	            <div class="yueyue">积分：0分</div>
+	            <a href="jifen.html"><div class="jiantou"><img src="img/jian.png" width="30" height="31"/></div></a>
+	        </div>
         </div>
-        </div>
+         -->
     </div>
     <div class="kuang_1">
         <div class="yue">
-                <div class="yue_1">会员卡特权</div>
-                <div class="yue_2">查看特权信息</div>
+        		<div class="tubiao"><img src="img/vip.png" width="auto" height="30"/></div>
+                <div class="yueyue">会员卡特权</div>
+                <!-- <div class="yue_2">查看特权信息</div> -->
                 <a href="tequan.html"><div class="jiantou"><img src="img/jian.png" width="30" height="31"/></div></a>
             </div>
     </div>
     <div class="kuang_2">
+    	<!-- 
     	<div class="yue">
-            <div class="yue_1">我的订单</div>
+    		<div class="tubiao"><img src="img/dingdan.png" width="auto" height="30"/></div>
+            <div class="yueyue">我的订单</div>
             <a href="wodedingdan.html"><div class="jiantou"><img src="img/jian.png" width="30" height="31"/></div></a>
         </div>
         <div style="width:100%; height:1px; background:#c2c2c2;"></div>
+         -->
         <div class="jifen">
         <div class="yue">
-            <div class="yue_1">消费记录</div>
+        	<div class="tubiao"><img src="img/jilu.png" width="auto" height="30"/></div>
+            <div class="yueyue">消费记录</div>
             <a href="xiaofei.html"><div class="jiantou"><img src="img/jian.png" width="30" height="31"/></div></a>
         </div>
         </div>
         <div style="width:100%; height:1px; background:#c2c2c2;"></div>
         <div class="jifen">
         <div class="yue">
-            <div class="yue_1">会员卡说明</div>
+        	<div class="tubiao"><img src="img/shuoming.png" width="auto" height="30"/></div>
+            <div class="yueyue">会员卡说明</div>
             <a href="shuoming.html"><div class="jiantou"><img src="img/jian.png" width="30" height="31"/></div></a>
         </div>
         </div>
         <div style="width:100%; height:1px; background:#c2c2c2;"></div>
         <div class="jifen">
         <div class="yue">
-            <div class="yue_1">门店电话及地址</div>
+        	<div class="tubiao"><img src="img/dizhi.png" width="auto" height="30"/></div>
+            <div class="yueyue">门店电话及地址</div>
             <a href="mendian.html"><div class="jiantou"><img src="img/jian.png" width="30" height="31"/></div></a>
         </div>
         </div>
