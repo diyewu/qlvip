@@ -5,7 +5,7 @@
      "button":[
       {    
           "type":"view",
-          "name":"绑定手机",
+          "name":"我的会员卡",
           "url":"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4307e5a5bb1ced6c&redirect_uri=https%3A%2F%2Fzhonglestudio.cn%2Fqlvip%2Fvip%2Findex.html&response_type=code&scope=snsapi_base&state=123#wechat_redirect"
       },
       {

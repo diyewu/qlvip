@@ -10,9 +10,9 @@ import com.ql.utils.HttpsUtil;
 public class MessageHandler {
 	private final static String tempLateUrl = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN";
 	public static String processMsg(String content){
-		String resp = "如果停留在首页等待，则表示当前为调试时间段，如需测试完整功能，请联系管理员：18936483081 进行开放处理！";
+		String resp = "欢迎关注芊乐零食屋";
 		if("connectus".equals(content)){
-			resp = "电话：021-0000000\n地址：上海市黄浦区南苏州路1305号3号门";
+			resp = "电话：15162790722\n地址：通州区实验小学往东80米芊乐零食屋";
 		}
 		return resp;
 	}
@@ -28,7 +28,9 @@ public class MessageHandler {
         TreeMap<String,String> params = new TreeMap<String,String>();  
         params.put("access_token", accessToken); 
         String url = tempLateUrl.replace("ACCESS_TOKEN", accessToken);
+        System.out.println("url="+url);
         String resp = HttpsUtil.doPostSSL(url, data);
+        System.out.println("resp="+resp);
 //        String result = HttpReqUtil.HttpsDefaultExecute(HttpReqUtil.POST_METHOD, WechatConfig.SEND_TEMPLATE_MESSAGE, params, data);  
 //        templateMsgResult = JsonUtil.fromJson(result, TemplateMsgResult.class);  
         ObjectMapper objectMapper = new ObjectMapper();

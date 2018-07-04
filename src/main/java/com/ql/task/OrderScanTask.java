@@ -45,7 +45,7 @@ public class OrderScanTask {
 							orderNo = list.get(i).get("order_no")+"";
 						}
 					}
-					Thread thread = new WeiXinSendTemplateThread(list,customConfig.getAeskeycode());//多线程处理，尽量不影响下一次
+					Thread thread = new WeiXinSendTemplateThread(list,customConfig.getAeskeycode(),customConfig.getAppid(),customConfig.getSecret());//多线程处理，尽量不影响下一次
 					thread.start();
 				}
 			}

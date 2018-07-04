@@ -21,16 +21,19 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.sun.xml.internal.bind.marshaller.CharacterEscapeHandler;
 import com.ql.controller.weixin.message.response.TextMessage;
+import com.ql.entity.CustomConfig;
 import com.ql.utils.AgingCache;
 import com.ql.utils.HttpsUtil;
+import com.sun.xml.internal.bind.marshaller.CharacterEscapeHandler;
 
 @Component
 public class WeixinHelper {
-
+	@Autowired  
+    private CustomConfig customConfig; 
 	public static void main(String[] args) {
 		// System.out.println(getAccessToken("wxc03cad31c1ceb8f3",
 		// "d4624c36b6795d1d99dcf0547af5443d"));
@@ -53,6 +56,7 @@ public class WeixinHelper {
 		ObjectMapper mapper = new ObjectMapper();
 		String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+appId+"&secret="+appSecret+"";
 		// String url = "https://api.weixin.qq.com/cgi-bin/token?";
+		System.out.println("__url="+url);
 		String accessToken = "";
 		try {
 			accessToken = AgingCache.getCacheInfo(WeixinConstants.WEIXIN_TOKEN) != null

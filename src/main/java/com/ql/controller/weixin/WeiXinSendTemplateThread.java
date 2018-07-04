@@ -15,10 +15,14 @@ import com.ql.utils.SmartEncryptionUtil;
 public class WeiXinSendTemplateThread extends Thread {
 	private List<Map<String, Object>> list;
 	private String aesKey;
+	private String appId;
+	private String appSecret;
 
-	public WeiXinSendTemplateThread(List<Map<String, Object>> list,String aesKey) {
+	public WeiXinSendTemplateThread(List<Map<String, Object>> list,String aesKey,String appId,String appSecret) {
 		this.list = list;
 		this.aesKey = aesKey;
+		this.appId = appId;
+		this.appSecret = appSecret;
 	}
 
 	public void run() {
@@ -68,7 +72,7 @@ public class WeiXinSendTemplateThread extends Thread {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		String token = WeixinHelper.getAccessToken("", "");
+		String token = WeixinHelper.getAccessToken(appId, appSecret);
 		templateMsgResult = MessageHandler.sendTemplate(token, data);
 		if(!"0".equals(templateMsgResult.getErrcode())){
 			System.out.println("出错啦……"+templateMsgResult.getErrmsg());
