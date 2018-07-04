@@ -1,23 +1,24 @@
 package com.ql.controller.weixin;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import com.ql.controller.weixin.message.response.TemplateMsgResult;
 import com.ql.controller.weixin.message.response.WechatTemplateMsg;
+import com.ql.utils.SmartEncryptionUtil;
 
 public class WeiXinSendTemplateThread extends Thread {
 	private List<Map<String, Object>> list;
+	private String aesKey;
 
-	public WeiXinSendTemplateThread(List<Map<String, Object>> list) {
+	public WeiXinSendTemplateThread(List<Map<String, Object>> list,String aesKey) {
 		this.list = list;
+		this.aesKey = aesKey;
 	}
 
 	public void run() {
@@ -30,6 +31,15 @@ public class WeiXinSendTemplateThread extends Thread {
 				String phone = list.get(i).get("phone") + "";// 手机号
 				String openId = list.get(i).get("open_id") + "";// 微信关注的open_id
 				String date = list.get(i).get("inputdatetime") + "";// date
+				
+//				String openId = (String)memberList.get(0).get("open_id");
+				long paramTime = System.currentTimeMillis();
+				Map<String, String> param = new HashMap<String, String>();
+				param.put("time", paramTime+"");
+				param.put("memberNo", memberNo);
+				String sign = SmartEncryptionUtil.encryParam(param, "memberId", aesKey );
+				String url = "https://zhonglestudio.cn/qlvip/vip/wodedingdan.html?time="+
+				paramTime+"&memberNo="+memberNo+"&sign="+sign;
 				processTemplate(openId, "", memberNo, date, actuallypaid, deposit);
 			}
 		}
@@ -66,7 +76,5 @@ public class WeiXinSendTemplateThread extends Thread {
 	}
 
 	public static void main(String[] args) {
-		Thread thread = new WeiXinSendTemplateThread(new ArrayList<Map<String, Object>>());
-		thread.start();
 	}
 }
