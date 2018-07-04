@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="css/swiper-3.2.7.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+    
+    <!-- 必须加在微信api资源 -->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </head>
 <body>
     <!-- Swiper -->
@@ -65,7 +68,7 @@
             		<img src="./images/lufei.png"/>
             	</div>
             	 -->
-            	<div class="introduce ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+            	<div class="introduce ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1s" swiper-animate-delay="0.1s">
             		<img src="./images/newvip.png" />
             	</div>
             </div>
@@ -84,7 +87,7 @@
             	</div>
             	
             	 -->
-            	<div class="introduce ani" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+            	<div class="introduce ani" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="0.1s">
             		<img src="./images/oldvip.png" />
             	</div>
             </div>
@@ -102,7 +105,7 @@
             		<img src="./images/wusuopu.png"/>
             	</div>
             	 -->
-            	<div class="introduce ani" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s">
+            	<div class="introduce ani" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay="0.1s">
             		<img src="./images/vip.png" />
             	</div>
             </div>
@@ -230,7 +233,7 @@
     <div id="music">
     		<img src="images/music.gif" class="music_gif"/>
     		<img src="images/music_off.png" class="music_logo"/>   								<!--页面载入完成后再载入音乐-->
-    		<audio src="images/Avril Lavigne - How You Remind Me.mp3" preload="auto" loop="loop" class="ad" autoplay="autoplay"></audio>
+    		<audio id="autoaudio" src="images/lianai.mp3" preload="auto" loop="loop" class="ad" autoplay="autoplay"></audio>
     </div>
     <!--音乐处理结束-->
 

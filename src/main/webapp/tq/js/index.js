@@ -15,6 +15,11 @@ window.onload = function() {
 			swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
 		}
 	});
+	
+	//必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        document.getElementById('autoaudio').play();
+    }, false);
 }
 
 
