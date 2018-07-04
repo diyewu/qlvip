@@ -1,3 +1,9 @@
+
+//日期转换
+Date.prototype.toLocaleString = function() {
+          return this.getFullYear() + "年" + (this.getMonth() + 1) + "月" + this.getDate() + "日 " + this.getHours() + "点" + this.getMinutes() + "分"/* + this.getSeconds() + "秒"*/;
+    };
+
 String.prototype.replaceAll = function(s1,s2){
     return this.replace(new RegExp(s1,"gm"),s2);
 }

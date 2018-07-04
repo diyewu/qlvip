@@ -176,4 +176,21 @@ public class SmartMemberService {
 		return list;
 	}
 	
+	/**
+	 * 根据openId获取会员消费记录
+	 * @param openId
+	 * @return
+	 */
+	public List<Map<String, Object>> getMemebrConsumeInfo(String openId){
+		List<Map<String, Object>> resp = new ArrayList<Map<String,Object>>();
+		String sql = " SELECT sm.no FROM weixin_account wa LEFT JOIN sc_member sm ON wa.mobile = sm.phone WHERE open_id =  ? ";
+		List<Map<String, Object>> list = jdbcTemplate.queryForList(sql,openId);
+		if(list != null && list.size()>0){
+			String memberNo = (String)list.get(0).get("no");
+			sql = " select no,inputdatetime,actuallyPaid from sc_bill where member_no = ? order by inputdatetime desc ";
+			resp = jdbcTemplate.queryForList(sql,memberNo);
+		}
+		return resp;
+	}
+	
 }

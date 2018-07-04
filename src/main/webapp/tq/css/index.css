@@ -1,0 +1,619 @@
+/*自带样式*/
+*{
+	padding: 0;
+	margin: 0;
+}
+html,
+body {
+	position: relative;
+	height: 100%;
+}
+
+body {
+	background: #eee;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #000;
+	margin: 0;
+	padding: 0;
+}
+
+.swiper-container {
+	width: 100%;
+	height: 100%;
+}
+
+/*.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	
+	 Center slide text vertically 
+	
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}*/
+/*自带样式结束*/
+
+/*音乐处理*/
+#music{
+	width: 60px;
+	height: 60px;
+/*	border: 1px solid red;*/
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	z-index: 1;
+}
+#music .music_gif{
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#music .music_logo{
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	animation: run 2s linear infinite;
+}
+@keyframes run{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
+/*音乐处理结束*/
+
+/*处理第一屏*/
+.one{
+	background: url(../images/bg.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.one .chuan{
+	width: 40%;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	display: none;
+}
+@keyframes move{
+	0%{
+		left: 50%;
+	}
+	50%{
+		left: 30%;
+	}
+	100%{
+		left: 50%;
+	}
+}
+.one .chuan img{
+	width: 100%;
+}
+.one .lj{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	/*max-height: 60%;*/
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.one .dao{
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+	top:0;
+	left:0;
+}
+@keyframes drun{
+	from{
+		left:0;
+	}
+	to{
+		left:-100%;
+	}
+}
+@keyframes wrun{
+	from{
+		left:0;
+	}
+	to{
+		left:100%;
+	}
+}
+
+.one .dao img{
+	width: 100%;
+	
+}
+.one .lj .ljm{
+	width: 100%;
+	
+}
+.one .word{
+	position: absolute;
+	top: 8%;
+	left: 0;
+	width: 100%;
+	background: rgba(255,255,255,0.3);
+	font-family: "微软雅黑";
+	font-size: 5vw;
+	color: white;
+	margin-bottom: 2px;
+}
+.one .word1{
+	position: absolute;
+	top: 19%;
+	left: 0;
+	width: 33.3%;
+	background: rgba(255,255,255,0.3);
+	font-family: "微软雅黑";
+	font-size: 5vw;
+	color: white;
+	margin-bottom: 2px;
+}
+.one .word1 img{
+	width: 100%;
+}
+.one .word2{
+	position: absolute;
+	top: 19%;
+	left: 33.3%;
+	width: 33.3%;
+	background: rgba(255,255,255,0.3);
+	font-family: "微软雅黑";
+	font-size: 5vw;
+	color: white;
+	margin-bottom: 2px;
+}
+.one .word2 img{
+	width: 100%;
+}
+.one .word3{
+	position: absolute;
+	top: 19%;
+	left: 66.6%;
+	width: 33.4%;
+	background: rgba(255,255,255,0.3);
+	font-family: "微软雅黑";
+	font-size: 5vw;
+	color: white;
+	margin-bottom: 2px;
+}
+.one .word3 img{
+	width: 100%;
+}
+.one .word4{
+	position: absolute;
+	top: 60%;
+	left: 0;
+	width: 33.4%;
+	background: rgba(255,255,255,0.3);
+	font-family: "微软雅黑";
+	font-size: 5vw;
+	color: white;
+	margin-bottom: 2px;
+}
+.one .word4 img{
+	width: 100%;
+}
+.one .word5{
+	position: absolute;
+	top: 60%;
+	left: 33.3%;
+	width: 33.3%;
+	background: rgba(255,255,255,0.3);
+	font-family: "微软雅黑";
+	font-size: 5vw;
+	color: white;
+	margin-bottom: 2px;
+}
+.one .word5 img{
+	width: 100%;
+}
+.one .word6{
+	position: absolute;
+	top: 60%;
+	left: 66.6%;
+	width: 33.4%;
+	background: rgba(255,255,255,0.3);
+	font-family: "微软雅黑";
+	font-size: 5vw;
+	color: white;
+	margin-bottom: 2px;
+}
+.one .word6 img{
+	width: 100%;
+}
+.one .word img{
+	width: 100%;
+}
+.one .go{
+	width: 100%;
+	height: 8%;
+	border: none;
+	background:url(../images/kill.png) no-repeat ;
+	background-size:100% 100% ;
+	color: white;
+	font-size: 6vw;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+/*处理第一屏结束*/
+
+
+
+/*处理第二屏*/
+.two{
+	background: url(../images/bg.jpg) no-repeat;
+	background-size:100% 100% ;
+	position: relative;
+}
+.two .zw{
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width:100%;
+	height: 100%;
+	overflow: hidden;
+}
+.two .crew{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	width:40%;
+	height: 30%;
+	overflow: hidden;
+}
+.two .crew img{
+	width: 100%;
+}
+.two .introduce{
+	position: absolute;
+	top: 25%;
+	right: 3%;
+	width:54%;
+	height: 80%;
+	overflow: hidden;
+}
+.two .introduce img{
+	width: 100%;
+}
+/*处理第二屏结束*/
+
+/*第三屏*/
+.sl{
+	background: url(../images/bg.jpg) no-repeat;
+	background-size:100% 100% ;
+	position: relative;
+}
+.sl .zw{
+	position: absolute;
+	top: 25%;
+	left: 10%;
+	width:20%;
+	height: 80%;
+	overflow: hidden;
+}
+.sl .crew{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	width:40%;
+	height: 30%;
+	overflow: hidden;
+}
+.sl .crew img{
+	width: 100%;
+}
+.sl .introduce{
+	position: absolute;
+	top: 25%;
+	right: 3%;
+	width:54%;
+	height: 80%;
+	overflow: hidden;
+}
+.sl .introduce img{
+	width: 100%;
+}
+/*第三屏结束*/
+
+/*第四屏*/
+.wsp{
+	background: url(../images/bg.jpg) no-repeat;
+	background-size:100% 100% ;
+	position: relative;
+}
+.wsp .zw{
+	position: absolute;
+	top: 35%;
+	left: 10%;
+	width:20%;
+	height: 100%;
+	overflow: hidden;
+}
+.wsp .crew{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	width:40%;
+	height: 30%;
+	overflow: hidden;
+}
+.wsp .crew img{
+	width: 100%;
+}
+.wsp .introduce{
+	position: absolute;
+	top: 25%;
+	right: 3%;
+	width:54%;
+	height: 100%;
+	overflow: hidden;
+}
+.wsp .introduce img{
+	width: 100%;
+}
+/*第四屏结束*/
+
+/*第5屏*/
+.nm{
+	background: url(../images/main_bg.jpg) no-repeat;
+	background-size:100% 100% ;
+	position: relative;
+}
+.nm .zw{
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width:20%;
+	height: 20%;
+	overflow: hidden;
+}
+.nm .crew{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	width:40%;
+	height: 30%;
+	overflow: hidden;
+}
+.nm .crew img{
+	width: 100%;
+}
+.nm .introduce{
+	position: absolute;
+	top: 12%;
+	right: 3%;
+	width:54%;
+	height: 60%;
+	overflow: hidden;
+}
+.nm .introduce img{
+	width: 100%;
+}
+/*第5屏结束*/
+
+
+/*第6屏*/
+.sz{
+	background: url(../images/main_bg.jpg) no-repeat;
+	background-size:100% 100% ;
+	position: relative;
+}
+.sz .zw{
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width:20%;
+	height: 20%;
+	overflow: hidden;
+}
+.sz .crew{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	width:40%;
+	height: 30%;
+	overflow: hidden;
+}
+.sz .crew img{
+	width: 100%;
+}
+.sz .introduce{
+	position: absolute;
+	top: 12%;
+	right: 3%;
+	width:54%;
+	height: 60%;
+	overflow: hidden;
+}
+.sz .introduce img{
+	width: 100%;
+}
+/*第6屏结束*/
+
+/*第7屏*/
+.qb{
+	background: url(../images/main_bg.jpg) no-repeat;
+	background-size:100% 100% ;
+	position: relative;
+}
+.qb .zw{
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width:20%;
+	height: 20%;
+	overflow: hidden;
+}
+.qb .crew{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	width:40%;
+	height: 30%;
+	overflow: hidden;
+}
+.qb .crew img{
+	width: 100%;
+}
+.qb .introduce{
+	position: absolute;
+	top: 12%;
+	right: 3%;
+	width:54%;
+	height: 60%;
+	overflow: hidden;
+}
+.qb .introduce img{
+	width: 100%;
+}
+/*第7屏结束*/
+
+/*第8屏*/
+.lb{
+	background: url(../images/main_bg.jpg) no-repeat;
+	background-size:100% 100% ;
+	position: relative;
+}
+.lb .zw{
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width:20%;
+	height: 20%;
+	overflow: hidden;
+}
+.lb .crew{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	width:40%;
+	height: 30%;
+	overflow: hidden;
+}
+.lb .crew img{
+	width: 100%;
+}
+.lb .introduce{
+	position: absolute;
+	top: 12%;
+	right: 3%;
+	width:54%;
+	height: 60%;
+	overflow: hidden;
+}
+.lb .introduce img{
+	width: 100%;
+}
+/*第8屏结束*/
+
+/*第9屏*/
+.frk{
+	background: url(../images/main_bg.jpg) no-repeat;
+	background-size:100% 100% ;
+	position: relative;
+}
+.frk .zw{
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width:20%;
+	height: 20%;
+	overflow: hidden;
+}
+.frk .crew{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	width:40%;
+	height: 30%;
+	overflow: hidden;
+}
+.frk .crew img{
+	width: 100%;
+}
+.frk .introduce{
+	position: absolute;
+	top: 12%;
+	right: 3%;
+	width:54%;
+	height: 60%;
+	overflow: hidden;
+}
+.frk .introduce img{
+	width: 100%;
+}
+/*第9屏结束*/
+
+/*第10屏*/
+.blk{
+	background: url(../images/main_bg.jpg) no-repeat;
+	background-size:100% 100% ;
+	position: relative;
+}
+.blk .zw{
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width:20%;
+	height: 20%;
+	overflow: hidden;
+}
+.blk .crew{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	width:40%;
+	height: 30%;
+	overflow: hidden;
+}
+.blk .crew img{
+	width: 100%;
+}
+.blk .introduce{
+	position: absolute;
+	top: 12%;
+	right: 3%;
+	width:54%;
+	height: 60%;
+	overflow: hidden;
+}
+.blk .introduce img{
+	width: 100%;
+}
+
+/*第10屏结束*/
+
+/*第十一屏*/
+.final{
+	background: #000;
+	background-size:100% 100% ;
+	position: relative;
+}
+.final img{
+	float: left;
+	width: 10%;
+	margin: 0;
+	margin-top:30% ;
+}
+/*十一屏结束*/
