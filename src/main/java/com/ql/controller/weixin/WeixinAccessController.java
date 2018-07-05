@@ -109,7 +109,9 @@ public class WeixinAccessController extends BaseController{
     @ApiOperation(value = "根据微信网页授权code获取openId", notes = "根据微信网页授权code获取openId", httpMethod = "POST")
     @RequestMapping(value="getMemberInfoByCode",method = RequestMethod.POST)
     @ResponseBody
-    public JsonModel getMemberInfoByCode(@ApiParam(name = "authCode", value = "用户同意授权，获取code", required = true) @RequestParam("authCode") String authCode
+    public JsonModel getMemberInfoByCode(
+    		@ApiParam(name = "authCode", value = "用户同意授权，获取code", required = true) @RequestParam("authCode") String authCode,
+    		@ApiParam(name = "authOpenId", value = "测试用参数，authOpenId", required = false) @RequestParam(value = "authOpenId", required = false) String authOpenId
     		){
     	System.out.println("authCode="+authCode);
 //    	return null;
@@ -121,9 +123,13 @@ public class WeixinAccessController extends BaseController{
 		try {
 			String openId = "";
 			HttpSession session = getRequest().getSession(); 
-			if(StringUtils.isNotBlank(authCode)){
-				respMap = WeixinHelper.getWebAuthOpenIdAndAccessToken(customConfig.getAppid(), customConfig.getSecret(), authCode);
-				openId = respMap.get(WeixinConstants.WEIXIN_OPEN_ID);
+			if(StringUtils.isBlank(authOpenId)){
+				if(StringUtils.isNotBlank(authCode)){
+					respMap = WeixinHelper.getWebAuthOpenIdAndAccessToken(customConfig.getAppid(), customConfig.getSecret(), authCode);
+					openId = respMap.get(WeixinConstants.WEIXIN_OPEN_ID);
+				}
+			}else{
+				openId = authOpenId;
 			}
 			if(StringUtils.isBlank(openId)){
 				openId = (String)session.getAttribute(WeixinConstants.SESSION_WEIXIN_OPEN_ID);

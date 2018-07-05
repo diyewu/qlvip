@@ -139,9 +139,7 @@ public class HttpUtil {
                 // httpClient.close();
                 return result;
             }
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
 
