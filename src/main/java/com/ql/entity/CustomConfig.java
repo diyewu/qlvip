@@ -23,6 +23,52 @@ public class CustomConfig {
     private boolean sandbox;
     private String certpath;
 
+	private String cmsutf8baseurl;
+	private String gbkbaseurl;
+	private String smsid;
+	private String smsaccount;
+	private String smspassword;
+
+	public String getCmsutf8baseurl() {
+		return cmsutf8baseurl;
+	}
+
+	public void setCmsutf8baseurl(String cmsutf8baseurl) {
+		this.cmsutf8baseurl = cmsutf8baseurl;
+	}
+
+	public String getGbkbaseurl() {
+		return gbkbaseurl;
+	}
+
+	public void setGbkbaseurl(String gbkbaseurl) {
+		this.gbkbaseurl = gbkbaseurl;
+	}
+
+	public String getSmsid() {
+		return smsid;
+	}
+
+	public void setSmsid(String smsid) {
+		this.smsid = smsid;
+	}
+
+	public String getSmsaccount() {
+		return smsaccount;
+	}
+
+	public void setSmsaccount(String smsaccount) {
+		this.smsaccount = smsaccount;
+	}
+
+	public String getSmspassword() {
+		return smspassword;
+	}
+
+	public void setSmspassword(String smspassword) {
+		this.smspassword = smspassword;
+	}
+
 	public String getClientFileUpladPath() {
 		return clientFileUpladPath;
 	}

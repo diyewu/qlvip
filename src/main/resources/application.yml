@@ -93,3 +93,8 @@ custom:
      sandbox: false 
      #证书路径
      certpath: /opt/apache-tomcat-8.5.28/weixinpaycert/apiclient_cert.p12
+     utf8BaseUrl: http://39.98.198.70:8868/sms.aspx
+     gbkbaseurl: http://39.98.198.70:8868/smsGBK.aspx
+     smsid: 882
+     smsaccount: wu_di_ye1
+     smspassword: eAklUhSd6z

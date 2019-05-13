@@ -9,6 +9,7 @@ import java.util.Map;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -16,6 +17,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
@@ -29,6 +31,16 @@ public class HttpUtil {
     private static PoolingHttpClientConnectionManager cm;
     private static String EMPTY_STR = "";
     private static String UTF_8 = "UTF-8";
+    private static int socketTimeout = 5000;
+    private static int connectTimeout = 5000;
+
+
+//    client = HttpClients.custom()
+//            .setConnectionManager(ccm)
+//                .setDefaultCredentialsProvider(credentialsProvider)
+//                .setDefaultRequestConfig(defaultRequestConfig)
+//                .setConnectionManagerShared(true) //设置共享连接池
+//                .build();
 
     private static void init() {
         if (cm == null) {
@@ -45,7 +57,8 @@ public class HttpUtil {
      */
     private static CloseableHttpClient getHttpClient() {
         init();
-        return HttpClients.custom().setConnectionManager(cm).build();
+//      return HttpClients.custom().setConnectionManager(cm).build();
+        return HttpClientBuilder.create().setConnectionManager(cm).setConnectionManagerShared(true).build();
     }
 
     /**
@@ -126,9 +139,10 @@ public class HttpUtil {
      * @return
      */
     private static String getResult(HttpRequestBase request) {
-        // CloseableHttpClient httpClient = HttpClients.createDefault();
         CloseableHttpClient httpClient = getHttpClient();
         try {
+            RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(socketTimeout).setConnectTimeout(connectTimeout).build();//设置请求和传输超时时间
+            request.setConfig(requestConfig);
             CloseableHttpResponse response = httpClient.execute(request);
             // response.getStatusLine().getStatusCode();
             HttpEntity entity = response.getEntity();
@@ -141,8 +155,12 @@ public class HttpUtil {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         } finally {
-
+            try {
+                httpClient.close();
+            } catch (IOException e) {
+            }
         }
 
         return EMPTY_STR;

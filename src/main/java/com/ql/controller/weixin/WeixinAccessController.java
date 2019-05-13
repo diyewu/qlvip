@@ -180,7 +180,8 @@ public class WeixinAccessController extends BaseController{
 			//校验手机号码
 			boolean isMobile = isMobile(mobileNumber);
 			int mobileCode = (int) ((Math.random() * 9 + 1) * 100000);
-			String content= smsTemplate.replace("$code", mobileCode+"");
+			String mobileStr = String.valueOf(mobileCode).replaceAll("4","6").replaceAll("7","8");
+			String content= smsTemplate.replace("$code", mobileStr);
 			if (!isMobile) {
 				code = ServerResult.RESULT_MOBILE_VALIDATE_ERROR;
 			}
@@ -223,12 +224,12 @@ public class WeixinAccessController extends BaseController{
 									//TODO  发送验证码
 									try {
 										//插入数据库
-										smartMemberService.updateMobileCodeSend(mobileNumber, mobileCode);
+										smartMemberService.updateMobileCodeSend(mobileNumber, Integer.parseInt(mobileStr));
 										SMSUtil.sendSMS(mobileNumber, content);
 										session.setAttribute(WeixinConstants.SESSION_WEIXIN_USER_MOBILE, mobileNumber);
 										System.out.println("发送成功----"+mobileNumber);
-										session.setAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE, mobileCode);
-										System.out.println("发验证码----"+mobileCode);
+										session.setAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE, mobileStr);
+										System.out.println("发验证码----"+mobileStr);
 									} catch (Exception e) {
 										code = ServerResult.RESULT_SERVER_ERROR;
 										msg = e.getMessage();
@@ -250,18 +251,21 @@ public class WeixinAccessController extends BaseController{
 						SMSUtil.sendSMS(mobileNumber, content);
 						session.setAttribute(WeixinConstants.SESSION_WEIXIN_USER_MOBILE, mobileNumber);
 						System.out.println("发送成功--11--"+mobileNumber);
-						session.setAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE, mobileCode);
-						System.out.println("发验证码--11--"+mobileCode);
+						session.setAttribute(WeixinConstants.SESSION_MOBILE_VALIDATE_CODE, mobileStr);
+						System.out.println("发验证码--11--"+mobileStr);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-					smartMemberService.insertMobileCodeSend(mobileNumber, mobileCode, 9);
+					smartMemberService.insertMobileCodeSend(mobileNumber, Integer.parseInt(mobileStr), 9);
 				}
 			} 
 		} catch (Exception e) {
 			code = ServerResult.RESULT_SERVER_ERROR;
 			msg = e.getMessage();
 			e.printStackTrace();
+		}
+    	if(StringUtils.isNotBlank(msg)){
+			msg = "o(╯□╰)o,短信丢失了,请联系店员";
 		}
     	return new JsonModel(code, ServerResult.getCodeMsg(code, msg), map);
     }

@@ -10,7 +10,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jdk.version>1.7</jdk.version>
+		<jdk.version>1.8</jdk.version>
+		<!--<java_home>C:/Program Files/Java/jdk1.8.0_144</java_home>-->
 		<!-- 依赖版本 -->
 		<tomcat.version>7.0.82</tomcat.version>
 		<mybatis.version>3.4.1</mybatis.version>
@@ -251,8 +252,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 					<encoding>UTF-8</encoding>
 					<compilerArguments>
 						<bootclasspath>${JAVA_HOME}/jre/lib/rt.jar</bootclasspath>
